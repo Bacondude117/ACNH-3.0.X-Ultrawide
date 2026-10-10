@@ -1,0 +1,19 @@
+{
+  "revision": 2,
+  "status": "source packaging checks passed",
+  "patch_sha256": "5be72a4fbcc998a6f094256c88e93e77cf8ed4f8f758a0e0ddf11597561bb00b",
+  "scope": "Explicitly allowlisted UTF-8 source/docs; regression suite and exact patch rebuild",
+  "excluded": [
+    "game files/assets",
+    "keys/saves",
+    "emulator configs/logs",
+    "third-party binaries",
+    "caches",
+    "v3 code"
+  ],
+  "credential_and_private_path_patterns": "no matches",
+  "license_file": "LICENSE",
+  "dependencies": "Pinned in requirements.txt; installed separately",
+  "limits": "Pattern scanning is not a legal clearance or a guarantee of finding every possible secret. Review changes before publication.",
+  "github_upload": "not performed"
+}

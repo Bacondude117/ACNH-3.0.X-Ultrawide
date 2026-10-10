@@ -1,0 +1,48 @@
+{
+  "revision": 2,
+  "game": "Animal Crossing: New Horizons",
+  "game_version": "3.0.3",
+  "title_id": "01006F8002326000",
+  "build_id": "FF1D1C05670DB6021C85B624A710B963",
+  "width": 3440,
+  "height": 1440,
+  "code_padding_start": "03F06DF0",
+  "code_padding_end": "03F07000",
+  "image_size": "04B58000",
+  "pchtxt_sha256": "5be72a4fbcc998a6f094256c88e93e77cf8ed4f8f758a0e0ddf11597561bb00b",
+  "verified_nso_segments": [
+    {
+      "address": "00000000",
+      "size": 66088432,
+      "sha256": "cd63b484750f5467b0ae0f504cc251831b653c2aea37ab5692741360d5b73606"
+    },
+    {
+      "address": "03F07000",
+      "size": 8507900,
+      "sha256": "7f0f069d2b3d9a201115d2dc1cdcf4fa293e456a7198ce61a698e57c89e0f41e"
+    },
+    {
+      "address": "04725000",
+      "size": 4401456,
+      "sha256": "50358262bf86f8e20d48e64caf27eaae741c9516f8f69063fed9e9af124d898c"
+    }
+  ],
+  "hooks": [
+    {
+      "site": "037E594C",
+      "cave": "03F06E00",
+      "original": "00B040BD",
+      "source": "aspect_getter.s",
+      "site_label": "Aspect getter hook",
+      "cave_label": "Conditional aspect getter"
+    },
+    {
+      "site": "037E5968",
+      "cave": "03F06E80",
+      "original": "009840BD",
+      "source": "perspective_matrix.s",
+      "site_label": "Perspective matrix hook",
+      "cave_label": "Conditional perspective matrix"
+    }
+  ]
+}

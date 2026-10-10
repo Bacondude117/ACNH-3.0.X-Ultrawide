@@ -1,0 +1,17 @@
+{
+  ".gitignore": "55c623f2d2a48744103d0ca0845bb6f283b81305cf1a33898c1775bed2d8551f",
+  "BUILDING.md": "5ed519b130905b7ff4b30c066dc94813794ff61e26ec681b1db29190835ed87e",
+  "INSTALL.md": "4d6a171780d5660c353fdd61c85bcf8aeca9dbc1bac2f86b1f451c82b488c4aa",
+  "LICENSE": "4045b29c5dcda6eac95d2bf6f97657f97f379f8cba052b6e9e820ee82b3fdae3",
+  "README.md": "4d6a171780d5660c353fdd61c85bcf8aeca9dbc1bac2f86b1f451c82b488c4aa",
+  "THIRD_PARTY.md": "c7493f0a216255c054867bfcc9123639fdc04bd2c41f39d5d021264e3469b08c",
+  "build.py": "6dfa1317267522c4b2b5e592826be16d9ccdddb714bfbdfda36b6bd5aae386de",
+  "patch.json": "ccee87636fff6821271f4b2dda5591f924793ab0e1bb3a9e926d4e753464a60c",
+  "release.py": "2c9acad4405aaa05fae8dbb550e990ac74c6691efeb18e83170b07641c2349e0",
+  "requirements.txt": "2a8cea1afb1eecb69abe7bdf7905322af1b32c9d968717a0c508f723b4b4444d",
+  "src/aspect_getter.s": "a987177966380aaae1d1f4c69ccb5e61d56383bd768dd04a344de3fa2474c8bb",
+  "src/patch_header.txt": "5073c0f695d242d0c7b696d6ce44794f838fc603d75d618085a68e162624fe67",
+  "src/perspective_matrix.s": "dafc660568527dcb0fee328862d12522c7681f85b80fba673906df178e54a22e",
+  "tests/test_build.py": "7fd7d064fd279ddaeabcbe1e3e4b783b0dbb658f0602a384de5a8ab3fc20f058",
+  "verify.py": "2e05a9d2bbcfa700e46745bceb3c9a673eb7177747002d28691a87daf0d7f18c"
+}

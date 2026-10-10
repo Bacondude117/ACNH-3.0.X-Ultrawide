@@ -1,0 +1,10 @@
+@nsobid-FF1D1C05670DB6021C85B624A710B963
+// Animal Crossing: New Horizons 3.0.3 / 01006F8002326000
+// Experimental 3440x1440 (43:18) perspective patch for Eden desktop.
+// Exact float32 ratio 0x4018E38E. Only native 16:9 perspective cameras change.
+// Set Eden graphics aspect ratio to Stretch to Window and use 3440x1440 fullscreen.
+// This does not reposition or correct the 2D HUD. See README.md.
+@flag offset_shift 0x100
+@flag print_values
+// 3440x1440 perspective correction v2 - Eden loader formatting fix
+@enabled
