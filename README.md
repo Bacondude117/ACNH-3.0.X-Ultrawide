@@ -36,4 +36,7 @@ These issues are not yet fixed.
 - Only ACNH version 3.0.3 running on Eden has been tested.
 - Compatibility with the linked 60 FPS patch has been confirmed. Other FPS patches and mods have not been tested.
 - Back up your existing mod files before installing or replacing patches.
-## THIS MOD WAS BUILT WITH HELP FROM GPT-6 ASTRA
+
+## Credits
+
+Developed with assistance from GPT-6 Astra.
