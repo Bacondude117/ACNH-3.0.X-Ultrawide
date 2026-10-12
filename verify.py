@@ -48,11 +48,11 @@ def check_loader(config, patches, data):
     expected = [(p["address"] + offset, p["new"][offset:offset + 4])
                 for p in patches for offset in range(0, len(p["new"]), 4)]
     require(data.startswith(f"@nsobid-{config['build_id']}\r\n".encode("ascii")), "Incorrect build ID")
-    require(loader_records(data) == expected and len(expected) == 33,
-            "Eden would not read all 33 records")
+    require(loader_records(data) == expected,
+            "Eden would not read every record")
     broken = data.replace(b"@enabled\r\n", b"@enabled\r\n\r\n", 1)
     require(loader_records(broken) == [], "Blank-line regression check failed")
-    return {"records": 33, "payload_bytes": 132, "blank_line_regression": "passed"}
+    return {"records": len(expected), "payload_bytes": sum(len(p['new']) for p in patches), "blank_line_regression": "passed"}
 
 
 def _deps():
@@ -64,7 +64,10 @@ def _deps():
 def _machine(patches, relocation=0, original=None):
     unicorn, r = _deps()
     u = unicorn.Uc(unicorn.UC_ARCH_ARM64, unicorn.UC_MODE_ARM)
-    for page in (0x37e5000, 0x3f06000):
+    pages = {0x37e5000, 0x3f06000}
+    for patch in patches:
+        pages.update(range(patch['address'] & ~4095, (patch['address'] + len(patch['new']) + 4095) & ~4095, 4096))
+    for page in sorted(pages):
         u.mem_map(relocation + page, 0x1000)
         if original is not None:
             u.mem_write(relocation + page, bytes(original[page:page + 0x1000]))
@@ -102,7 +105,7 @@ def verify_hooks(config, patches):
             bits = struct.unpack("<I", struct.pack("<f", ratio))[0]
             expected = WIDE if bits == NATIVE else bits
             for flags in (0, 0x90000000, 0x60000000, 0xf0000000):
-                for index, hook in enumerate(config["hooks"]):
+                for index, hook in enumerate(config["hooks"][:2]):
                     site = int(hook["site"], 16)
                     u = _machine(patches, relocation)
                     _projection(u, ratio)
@@ -175,4 +178,10 @@ def verify_main(path, config, patches):
                     "Patch changed vertical/depth/offset projection entries")
         else:
             require(a == b, "A non-native camera ratio was changed")
-    return {"status": "passed", "verified_segments": checks, "full_matrix_tests": 64}
+    from verify_ui import verify_scissor_regression, verify_projected_scissors
+    from verify_capture import verify_capture_coordinates, verify_material_projection
+    return {"status": "passed", "verified_segments": checks, "full_matrix_tests": 64,
+            "minimap_scissor_regression": verify_scissor_regression(image),
+            "projected_ui_scissors": verify_projected_scissors(image, patches),
+            "background_capture_coordinates": verify_capture_coordinates(image, patches),
+            "capture_material_projection": verify_material_projection(image)}

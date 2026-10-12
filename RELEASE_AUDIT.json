@@ -1,15 +1,16 @@
 {
-  "revision": 2,
+  "revision": 3,
   "status": "source packaging checks passed",
-  "patch_sha256": "5be72a4fbcc998a6f094256c88e93e77cf8ed4f8f758a0e0ddf11597561bb00b",
+  "correction": "2026-10-11-ui-sweep",
+  "patch_sha256": "b68345823fe8af80b52413309814bfd6c313cb26410821b5d95104050d11a052",
   "scope": "Explicitly allowlisted UTF-8 source/docs; regression suite and exact patch rebuild",
   "excluded": [
-    "game files/assets",
+    "game executables/assets",
     "keys/saves",
     "emulator configs/logs",
-    "third-party binaries",
+    "third-party binaries/source",
     "caches",
-    "v3 code"
+    "private research/extraction tools"
   ],
   "credential_and_private_path_patterns": "no matches",
   "license_file": "LICENSE",

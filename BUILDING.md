@@ -1,115 +1,69 @@
-# ACNH 3.0.3 — 3440×1440 ultrawide v2 source
+# Building v3
 
-This is the complete original source needed to assemble the **v2** ExeFS patch for Eden. It reproduces the working v2 `3440x1440.pchtxt` byte for byte. It does **not** include the later v3 loading-screen correction.
+Use Python 3.11 or later on a desktop platform supported by the pinned Keystone and Unicorn packages. Building requires no game dump, SDK, encryption key, asset, or Nintendo toolchain.
 
-No game executable, game assets, save data, keys, emulator, or personal paths are included. A game executable is **not required to build the patch**. Optional deeper checks use the builder's own extracted ExeFS `main`.
-
-## Requirements
-
-- Python 3.12 is the tested version (64-bit Windows).
-- Install the three pinned Python packages in `requirements.txt`.
-- Internet access is needed for the initial dependency installation unless the packages are already available locally. Nothing is downloaded by the build script itself.
-
-The scripts use portable Python paths and can also run on Linux/macOS where the dependency packages support the platform; those platforms have not been tested for this release.
-
-## Build on Windows
-
-Extract this entire source folder, open a terminal in it, then run:
-
-```powershell
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe build.py
-```
-
-If your Python installation does not provide `py`, replace `py -3.12` with `python`.
-
-## Build on Linux/macOS
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python build.py
-```
-
-The result is `dist/ACNH-3.0.3-3440x1440-Eden-v2.zip`, plus its unpacked mod folder. Use `--out DIRECTORY` to select a different output directory. The build never installs the mod or changes emulator settings.
-
-The patch file's SHA-256 must be:
+From the extracted source directory:
 
 ```text
-5be72a4fbcc998a6f094256c88e93e77cf8ed4f8f758a0e0ddf11597561bb00b
+python -m venv .venv
 ```
 
-The build fails if this fingerprint differs. Patch-file bytes match the original v2 release; the generated ZIP and its verification report have new portable packaging and therefore are not identical to the original release ZIP.
+Activate the environment (`.venv\Scripts\activate` on Windows Command Prompt, or `source .venv/bin/activate` on Linux/macOS), then:
 
-## Tests
-
-The default build assembles both routines from the `.s` source files, checks the exact release fingerprint, checks Eden's patch-block parsing, and executes 128 hook tests using an ARM64 CPU emulator. No game data is required for those checks.
-
-Run the additional regression suite with:
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```text
+python -m pip install -r requirements.txt
+python -B -m unittest discover -s tests -v
+python -B build.py --out dist
 ```
 
-For full verification against your own unmodified 3.0.3 executable:
+Output: `dist/ACNH-3.0.3-3440x1440-Eden-v3.zip`, containing the mod folder and `exefs/3440x1440.pchtxt`. The mod README comes directly from `INSTALL.md`.
 
-```powershell
-.\.venv\Scripts\python.exe build.py --verify-main "D:\MyDump\exefs\main"
+The patch SHA-256 must be:
+
+```text
+b68345823fe8af80b52413309814bfd6c313cb26410821b5d95104050d11a052
 ```
 
-On Linux/macOS, use `.venv/bin/python` instead. The input must be the extracted **main NSO**, not an XCI, NSP, NCA, or the entire ExeFS directory. Compressed and decompressed NSO segments are supported. Container extraction is outside this project; no keys are read or needed here.
+The `.pchtxt` contains assembled machine-code/data records; Eden applies them at load time. CRLF line endings, addresses, payload bytes, and record ordering are deterministic across hosts. ZIP metadata is fixed. The verification report differs if optional game verification is requested; the patch does not.
 
-This optional step validates the exact build ID, all three segment layouts and SHA-256 hashes, original hook instructions, and padding. It then runs 64 complete original-versus-patched projection-matrix comparisons. The file is only read and is never copied into the output.
+## Optional local verification
 
-## Supported build and behavior
+For an already extracted, unmodified ACNH 3.0.3 `main` NSO:
 
-- Animal Crossing: New Horizons 3.0.3, Switch version
-- Title ID: `01006F8002326000`
-- Main build ID: `FF1D1C05670DB6021C85B624A710B963`
-- Display: 3440×1440 landscape, exact aspect 43:18
-- Emulator: Eden desktop with Stretch to Window
-
-The patch changes a native float32 16:9 perspective aspect to float32 43:18. It does not change internal rendering resolution. The user confirmed v2's wider gameplay view works.
-
-**Known v2 issue:** loading screens at startup and between buildings can leave terrain visible at the sides. This archive intentionally preserves v2, including that issue. HUDs and menus may also stretch. This is an emulator patch using NSO code-segment alignment padding, not a physical-Switch/Atmosphere patch.
-
-## Files
-
-| File | Purpose |
-| --- | --- |
-| `src/aspect_getter.s` | Conditional aspect getter, with preserved registers and flags |
-| `src/perspective_matrix.s` | Conditional perspective-matrix entry hook |
-| `src/patch_header.txt` | Exact v2 IPSwitch metadata and header |
-| `patch.json` | Build ID, addresses, expected original bytes, segment hashes, release fingerprint |
-| `build.py` | Assembles, validates, and packages the mod |
-| `verify.py` | Patch-loader and ARM64 tests; optional original-NSO verification |
-| `tests/test_build.py` | Release, parsing, CPU, invalid-input, and packaging regression tests |
-| `requirements.txt` | Pinned third-party dependencies |
-| `INSTALL.md` | Instructions included in the generated mod ZIP |
-
-There are no hidden helper files or required paths outside this folder. Third-party dependency source is not vendored; install the declared packages with pip.
-
-## License and public releases
-
-The original code and documentation in this project use **MIT No Attribution (MIT-0)**; see `LICENSE`. No third-party source is copied into this project. Separately installed dependencies retain their own licenses, described in `THIRD_PARTY.md`. The license does not cover Nintendo's game or any other external software.
-
-To create an audited GitHub-ready source ZIP, run:
-
-```powershell
-.\.venv\Scripts\python.exe release.py
+```text
+python -B build.py --out dist --verify-main path/to/main
 ```
 
-This runs the regression suite and exact v2 rebuild, scans the selected source for credential/private-path patterns, and packages only an explicit allowlist. The archive includes source hashes and `RELEASE_AUDIT.json`. It does not publish anything. Use the audited source ZIP or its extracted contents for the repository, not the parent development workspace, game dump, emulator folder, or dependency environment.
+This checks the build ID, all three NSO segment hashes, original instructions and padding, runs 64 whole-projection CPU comparisons, reproduces the old minimap clipping error in eight executions, tests corrected clipping with 52 executions of the game routine, and runs 32 background-copy coordinate checks plus four original material-projection executions with 28 coordinate samples. Do not add the NSO to this source project or its archive.
 
-Future versions must update the manifest, tests, known issues, and file allowlist; review any new third-party code before licensing it. Run this release check and rebuild from a fresh extraction before delivery. Automated scanning supports a source review; it is not a legal clearance or an exhaustive secret detector.
+Developers with the specific original `.bflyt`/`.bflan` resources listed in `layout_deltas.json` can call `verify_resources.verify_local_resources(directory, config, patches)` to validate their hashes and run the actual-resource CPU checks. These files are not required to build or run the public regression suite. Extraction/decryption tools and keys are not distributed here.
 
-## Implementation notes
+`verify_ui.verify_local_ui(directory)` additionally parses the corrected DAL/minimap layouts and 19 phone/menu/wipe layouts. It checks mask coverage, retained foreground/material geometry, capture alignment, and 60 interpolated samples from 12 resized animation segments. These checks are not GPU tests.
 
-The getter at `0x037E594C` branches to `0x03F06E00`. The matrix entry at `0x037E5968` branches to `0x03F06E80`. The routines use otherwise unused executable alignment padding below `0x03F07000`, preserve x15–x17 and NZCV, and keep the stack 16-byte aligned. All addresses are module-relative.
+`verify_sweep.verify_local_sweep(directory)` checks the 47 additional layouts against their original hashes, validates 39 embedded background overrides and eight capture-material projection fields, and rejects unrelated foreground geometry changes. The public tests additionally execute the new capture hook 128 times without requiring a game file.
 
-The `.pchtxt` uses `@flag offset_shift 0x100` for the NSO-header offset. Keep all 33 four-byte records in a continuous enabled block: a blank line inside the block makes Eden v0.2.1 stop reading it. The build regression test reproduces this original v1 failure.
+## Source packaging
 
-Keystone assembles the source, Unicorn executes the hook tests, and lz4 reads compressed NSO segments for optional verification. Their code is not included in this archive. This is the source for a standalone custom patch; it does not require or include Eden's source code.
+```text
+python -B release.py --out release
+```
 
-To develop a different patch, update the assembly and configuration deliberately, including the expected fingerprint and relevant tests. Changing only the build ID cannot port this mod to a different game version.
+This runs the regression suite and exact-byte build, audits an explicit allowlist, creates `ACNH-3440x1440-v3-source.zip`, checks the actual archive members and bytes, and records source hashes/audit results. It does not upload anything.
+
+For a fresh-source reproduction, extract that archive into a new directory, install the pinned dependencies separately, and run the build commands again. Compare the patch SHA-256 with the value above. Never package the whole workspace or `.venv` directory.
+
+## Modifying the patch
+
+The resource table is generated entirely from `layout_deltas.json`. Each entry starts with u32 file length, u32 total entry length and a u64 whole-file FNV-1a identity. Writes sharing a replacement value are grouped as u16 count, u32 replacement and that many u16 byte offsets. A zero-size entry ends the table. Normal-memory reads can be unaligned; all write offsets must be four-byte aligned, at most 65535 and within the identified resource. Identical resources are deduplicated only when their deltas agree. Grouping keeps the expanded manifest within the verified padding without changing the resource-match policy.
+
+Most writes are float fields/keyframes. Two writes zero the single-entry user-data counts for minimap `ScissorOn` registration; setting its value to zero would not work because the 3.0.3 pane factory checks property presence. Background-only changes include explicit `prt1` embedded overrides, which otherwise replace the shared background's dimensions at instantiation.
+
+The two resource hooks preserve registers/flags and replay the replaced instruction. The shared routine compares the complete loaded resource before writing. Changed resources, including resources already patched during this process, do not match. No repeated offset accumulates.
+
+`src/ui_scissor.s` corrects the horizontal conversion in the verified 3.0.3 ScissorPane calculation at `03A308E8`. It reads the current UI projection and preserves scratch registers/flags. Perspective clipping uses viewportWidth/layoutHeight * abs(m00/m11), while orthographic and capture-local paths keep their original behavior. Public CPU tests exercise this hook without a game file.
+
+`src/ui_capture.s` and `src/ui_capture_tail.s` hook `03A2EABC`. For perspective draws they multiply the original normalized copy width by abs(m00/m11) * layoutWidth/layoutHeight; the subsequent game instructions therefore also produce the correct horizontal source center. Orthographic draws replay the original division. This replaces the earlier phone-specific 32/43 preprojection in the resource deltas, avoiding double correction. Eight selected Entire Layout material projectors use X scale 43/32 because the original texture-coordinate routine divides by that scale. The optional original-code tests verify that direction.
+
+Executable code uses verified text alignment padding; the table uses verified read-only segment alignment padding. This depends on Eden's page-aligned desktop NSO loader. Do not assume console hardware or another loader supports it.
+
+If changing source or deltas, intentionally regenerate `pchtxt_sha256` in `patch.json`, update the documented fingerprint and tests, and repeat original-byte, conflict, archive, and fresh-extraction checks. Passing assembly/CPU tests does not establish correct in-game rendering.

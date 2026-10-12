@@ -17,7 +17,10 @@ FILES = [
     ".gitignore", "README.md", "BUILDING.md", "INSTALL.md", "LICENSE", "THIRD_PARTY.md",
     "requirements.txt", "patch.json", "build.py", "verify.py", "release.py",
     "src/aspect_getter.s", "src/perspective_matrix.s", "src/patch_header.txt",
-    "tests/test_build.py",
+    "tests/test_build.py", "verify_resources.py", "layout_deltas.json",
+    "src/layout_load.s", "src/animation_load.s", "src/resource_patch.s",
+    "CHANGELOG.md", "VALIDATION.md", "verify_ui.py", "src/ui_scissor.s",
+    "verify_capture.py", "verify_sweep.py", "src/ui_capture.s", "src/ui_capture_tail.s",
 ]
 PATTERNS = {
     "private Windows home path": r"(?i)[a-z]:[\\/]Users[\\/][^\\/\s]+",
@@ -61,9 +64,10 @@ def main():
     payload["SOURCE_SHA256.json"] = (json.dumps(hashes, indent=2) + "\n").encode()
     report = {
         "revision": config["revision"], "status": "source packaging checks passed",
+        "correction": config.get("correction"),
         "patch_sha256": config["pchtxt_sha256"],
         "scope": "Explicitly allowlisted UTF-8 source/docs; regression suite and exact patch rebuild",
-        "excluded": ["game files/assets", "keys/saves", "emulator configs/logs", "third-party binaries", "caches", "v3 code"],
+        "excluded": ["game executables/assets", "keys/saves", "emulator configs/logs", "third-party binaries/source", "caches", "private research/extraction tools"],
         "credential_and_private_path_patterns": "no matches",
         "license_file": "LICENSE", "dependencies": "Pinned in requirements.txt; installed separately",
         "limits": "Pattern scanning is not a legal clearance or a guarantee of finding every possible secret. Review changes before publication.",
@@ -86,6 +90,15 @@ def main():
         for name, expected in hashes.items():
             if hashlib.sha256(archive.read(f"{prefix}/{name}")).hexdigest() != expected:
                 raise ValueError(f"Archived source checksum mismatch: {name}")
+        for name in archive.namelist():
+            data = archive.read(name)
+            if b'\0' in data:
+                raise ValueError('Unexpected binary in actual source archive')
+            for label, pattern in PATTERNS.items():
+                if re.search(pattern, data.decode('utf-8')):
+                    raise ValueError(f'Archived source audit rejected {name}: {label}')
+    for name in ('SOURCE_SHA256.json', 'RELEASE_AUDIT.json'):
+        (ROOT / name).write_bytes(payload[name])
     print(f"Audited source ZIP: {archive_path}")
 
 

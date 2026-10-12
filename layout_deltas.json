@@ -1,0 +1,3272 @@
+[
+  {
+    "resource": "Fade.arc/blyt/Fade.bflyt",
+    "size": 840,
+    "sha256": "ff358e03d76fd9e13a9cd1dcea7f0a046be86080cfc359b38fc965959a5229f6",
+    "fnv64": "8ea3bf6bfb08ec6f",
+    "patched_sha256": "6328f61df0214930bca2ecc98b106025bbd7fc6bf839621956873460ba7b5537",
+    "changes": [
+      {
+        "offset": 568,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Fade_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "Load.arc/blyt/Load.bflyt",
+    "size": 2164,
+    "sha256": "c26db0a2d9306d07a042b7801e7b7af0ab94f24b4f33feda6f92f842aa8686e0",
+    "fnv64": "50d38cee8d71c580",
+    "patched_sha256": "0f24b09e94b2804643ba392d41991842fd089834305018daeb9b5b2b4a74e7f8",
+    "changes": [
+      {
+        "offset": 568,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 764,
+        "before": "00804a44",
+        "after": "00808e44",
+        "description": "L_Island_00: horizontal position"
+      },
+      {
+        "offset": 872,
+        "before": "00804a44",
+        "after": "00808e44",
+        "description": "L_Airplane_00: horizontal position"
+      },
+      {
+        "offset": 984,
+        "before": "00404144",
+        "after": "00e08944",
+        "description": "L_Dream_00: horizontal position"
+      },
+      {
+        "offset": 1092,
+        "before": "00404144",
+        "after": "00e08944",
+        "description": "L_CloudIsland_00: horizontal position"
+      },
+      {
+        "offset": 1208,
+        "before": "00803d44",
+        "after": "00008844",
+        "description": "L_Ship_00: horizontal position"
+      },
+      {
+        "offset": 1316,
+        "before": "00403e44",
+        "after": "00608844",
+        "description": "L_Kpp_00: horizontal position"
+      },
+      {
+        "offset": 1424,
+        "before": "00004344",
+        "after": "00c08a44",
+        "description": "L_Man_00: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "LoadGoOut.arc/blyt/LoadGoOut.bflyt",
+    "size": 17844,
+    "sha256": "e79f4f0ffca606a821b928d16631cf5c9cb3166a709b288fa39475faa88b9f3d",
+    "fnv64": "0b49ce5f77b9f170",
+    "patched_sha256": "9ab245facbad9626617b753552bf561ed675edc2c60de1140e33e4e706cb0a3d",
+    "changes": [
+      {
+        "offset": 6372,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "WipeCircle.arc/blyt/WipeCircle.bflyt",
+    "size": 3980,
+    "sha256": "4a32c36807cbb8654d8561274b0bb94d76983ae364326b1ef968ef5b96dc0640",
+    "fnv64": "1a2e0b3e3c2694cf",
+    "patched_sha256": "d52b0b12918f33b1e96e62341a263b4b1d0f2a55ffe93ed6968bd3e684f194fd",
+    "changes": [
+      {
+        "offset": 1692,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_InOut_00: scale X"
+      },
+      {
+        "offset": 1696,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_InOut_00: scale Y"
+      },
+      {
+        "offset": 2624,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_InOut_01: scale X"
+      },
+      {
+        "offset": 2628,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_InOut_01: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "WipeVisitorDemo.arc/blyt/WipeVisitorDemo.bflyt",
+    "size": 6076,
+    "sha256": "081cda2ffeef90ef198359dc45a55beed5597ed7f67c9dc1911b2920b3702e7c",
+    "fnv64": "b56ef788bbb7cfba",
+    "patched_sha256": "4827db3ace0871ea2483c0cba48b6e566bc7a5ac21058762d088664cb7db15ab",
+    "changes": [
+      {
+        "offset": 2544,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_MaruS_00: scale X"
+      },
+      {
+        "offset": 2548,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_MaruS_00: scale Y"
+      },
+      {
+        "offset": 2680,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_Circle_00: scale X"
+      },
+      {
+        "offset": 2684,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_Circle_00: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreenSmartPhone.arc/blyt/MainScreenSmartPhone.bflyt",
+    "size": 9244,
+    "sha256": "6f860ea51accc71ce8da405f918004ccabc428315624715a308d4909f94596f0",
+    "fnv64": "ca73a72d77bca93f",
+    "patched_sha256": "87afc0e888b1b090d1d34ab155191727aadb3b0d3262dfea5af367e8c70e545b",
+    "changes": [
+      {
+        "offset": 2868,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_00: horizontal position"
+      },
+      {
+        "offset": 7904,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_01: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreenSmartPhone.arc/anim/MainScreenSmartPhone_In.bflan",
+    "size": 568,
+    "sha256": "143698905fdd00d38dd62c304ba7faa5a05314872c7cf4e006846c8656082347",
+    "fnv64": "ca7dcd3583a7b51a",
+    "patched_sha256": "9e415d5ed684879e760db364e6c99c793e38619c81bd1c7ab0bf51594e64d76f",
+    "changes": [
+      {
+        "offset": 196,
+        "before": "000065c4",
+        "after": "00c09bc4",
+        "description": "N_InOut_00: animated horizontal position"
+      },
+      {
+        "offset": 208,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_00: animated horizontal position"
+      },
+      {
+        "offset": 332,
+        "before": "000065c4",
+        "after": "00c09bc4",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 344,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreenSmartPhone.arc/anim/MainScreenSmartPhone_Out.bflan",
+    "size": 556,
+    "sha256": "be198b6f23829047a8d4cc59e60cbb0cfedf50dbef2a072abe08d1d8e8b75c6e",
+    "fnv64": "38211eaa5b0a1de1",
+    "patched_sha256": "819a4b7a747a7b1de160e691907d4781a7e44dc7152f1a2168ea5421da4ad0dc",
+    "changes": [
+      {
+        "offset": 196,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_00: animated horizontal position"
+      },
+      {
+        "offset": 208,
+        "before": "000065c4",
+        "after": "00c09bc4",
+        "description": "N_InOut_00: animated horizontal position"
+      },
+      {
+        "offset": 332,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 344,
+        "before": "000065c4",
+        "after": "00c09bc4",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreenCameraGuide.arc/anim/MainScreenCameraGuide_In.bflan",
+    "size": 252,
+    "sha256": "f8a15e80f9fc5b3b3a6361cde13496642cc8cdf49e2fd43987934c3c9ac5c8fb",
+    "fnv64": "6ac879d467a3e71e",
+    "patched_sha256": "9f0a16f3ec71746a6ec9146e993f81882f811de090b4d63a87aec764dc2a6323",
+    "changes": [
+      {
+        "offset": 184,
+        "before": "000065c4",
+        "after": "00c09bc4",
+        "description": "N_InOut_00: animated horizontal position"
+      },
+      {
+        "offset": 196,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_00: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreenCameraGuide.arc/anim/MainScreenCameraGuide_Out.bflan",
+    "size": 252,
+    "sha256": "f20cd6bc11989febd2c7f7e69f38e479a12bbc9cf5a2ca8b4f69863e792e5c5b",
+    "fnv64": "88755de82a1e3e5a",
+    "patched_sha256": "0be47e49680eb305dd7e636e46e187cdf668e9a0639db05ed9bc6dbc3d7e52e8",
+    "changes": [
+      {
+        "offset": 184,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_00: animated horizontal position"
+      },
+      {
+        "offset": 196,
+        "before": "000065c4",
+        "after": "00c09bc4",
+        "description": "N_InOut_00: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreenCameraGuide.arc/blyt/MainScreenCameraGuide.bflyt",
+    "size": 1624,
+    "sha256": "7b4f471b65595bb075b9059ff6805f4fcddd110bce5180a7e559cc8186338afd",
+    "fnv64": "201388d65646dc35",
+    "patched_sha256": "ac09c16dba261bd81e8554a8bb023ab8ee9b376bcab0d6cc99484b51c6d0f09d",
+    "changes": [
+      {
+        "offset": 824,
+        "before": "000060c4",
+        "after": "004099c4",
+        "description": "N_InOut_00: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MapMini.arc/anim/MapMini_Out.bflan",
+    "size": 376,
+    "sha256": "346e23fe34954bf83ad92c78e459d3efc2b2ad51f9f3b316e4d3989e7b6d7ce1",
+    "fnv64": "3f97ae1292c8e709",
+    "patched_sha256": "d27895ddc4969042a47e66708a17c0f9a0756bf8081b601d9532dc6b6303cdbe",
+    "changes": [
+      {
+        "offset": 188,
+        "before": "00803a44",
+        "after": "00808644",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 200,
+        "before": "00c04044",
+        "after": "00a08944",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MapMini.arc/blyt/MapMini.bflyt",
+    "size": 3456,
+    "sha256": "00964d5f9e1d5ed5f24aecf7ca8917d2eb63930afe7c1e97075e67656da8c6f7",
+    "fnv64": "c796fa6af582bd57",
+    "patched_sha256": "97817b01b7dca8da4ebcedc816a0127ca94b7de27cf5fd10c2da7f430b9abd71",
+    "changes": [
+      {
+        "offset": 1548,
+        "before": "00803a44",
+        "after": "00808644",
+        "description": "N_InOut_01: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MapMini.arc/anim/MapMini_In.bflan",
+    "size": 376,
+    "sha256": "1ef6673661606583107ea4357247adbcd2ffcfe42cd24335bca9bb1a7fb346b7",
+    "fnv64": "a299338fb5ac88c3",
+    "patched_sha256": "fff86891348800b4269fc4725f6335a20404603aa6f774a634cee854c92455c7",
+    "changes": [
+      {
+        "offset": 188,
+        "before": "00c04044",
+        "after": "00a08944",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 200,
+        "before": "00803a44",
+        "after": "00808644",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandMapMini.arc/anim/CloudIslandMapMini_Out.bflan",
+    "size": 376,
+    "sha256": "346e23fe34954bf83ad92c78e459d3efc2b2ad51f9f3b316e4d3989e7b6d7ce1",
+    "fnv64": "3f97ae1292c8e709",
+    "patched_sha256": "d27895ddc4969042a47e66708a17c0f9a0756bf8081b601d9532dc6b6303cdbe",
+    "changes": [
+      {
+        "offset": 188,
+        "before": "00803a44",
+        "after": "00808644",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 200,
+        "before": "00c04044",
+        "after": "00a08944",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandMapMini.arc/blyt/CloudIslandMapMini.bflyt",
+    "size": 2788,
+    "sha256": "ef06b872561b2d688ee4a7f79ee8bdb8055c9a8c9bfcf7fbc7d1d103b9d9ad34",
+    "fnv64": "e33b55434ace31db",
+    "patched_sha256": "af5b3c2b714653e4981fb6748d3ddb2cf2da6da13987cfbe3360f38011ae7afb",
+    "changes": [
+      {
+        "offset": 1340,
+        "before": "00803a44",
+        "after": "00808644",
+        "description": "N_InOut_01: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandMapMini.arc/anim/CloudIslandMapMini_In.bflan",
+    "size": 376,
+    "sha256": "1ef6673661606583107ea4357247adbcd2ffcfe42cd24335bca9bb1a7fb346b7",
+    "fnv64": "a299338fb5ac88c3",
+    "patched_sha256": "fff86891348800b4269fc4725f6335a20404603aa6f774a634cee854c92455c7",
+    "changes": [
+      {
+        "offset": 188,
+        "before": "00c04044",
+        "after": "00a08944",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 200,
+        "before": "00803a44",
+        "after": "00808644",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "LMapMini.arc/blyt/LMapMini.bflyt",
+    "size": 14012,
+    "sha256": "332233cd7c97c98fdfa193a4683e4a8bcb402143a36039a05d1a7fcef600e1e3",
+    "fnv64": "1e453d087f41e3bf",
+    "patched_sha256": "27dd3d80d64cbdbad79bb8549cedfec9ab546da9bf879e44c83e84e67aa741b6",
+    "changes": [
+      {
+        "offset": 2908,
+        "before": "01000000",
+        "after": "00000000",
+        "description": "N_Scissor_00: remove redundant screen-space ScissorOn registration; capture target still clips terrain"
+      }
+    ]
+  },
+  {
+    "resource": "LCloudIslandMapMini.arc/blyt/LCloudIslandMapMini.bflyt",
+    "size": 11108,
+    "sha256": "6fb00622f68233a8168970520903c96ea5811eea6e644bff8de45fa4848490a3",
+    "fnv64": "b7299d38fd75c925",
+    "patched_sha256": "d803f4aea828de8021a2e2c9f3b4646b407f7a65a1c3fe92312d0355356f2d21",
+    "changes": [
+      {
+        "offset": 3292,
+        "before": "01000000",
+        "after": "00000000",
+        "description": "N_Scissor_00: remove redundant screen-space ScissorOn registration; capture target still clips terrain"
+      }
+    ]
+  },
+  {
+    "resource": "LClock.arc/blyt/LClock.bflyt",
+    "size": 13920,
+    "sha256": "4bcf11ce164e2aae454edea94efa49c87e9eb43b829790dba473da738726568a",
+    "fnv64": "bae3da12ea40fa18",
+    "patched_sha256": "b9c8431f95832185036058967977c3c5a698e99d5662b32f6a8c9b594225aeef",
+    "changes": [
+      {
+        "offset": 12360,
+        "before": "000048c4",
+        "after": "00408dc4",
+        "description": "N_Pos_00: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MainScreen.arc/blyt/MainScreen.bflyt",
+    "size": 4676,
+    "sha256": "15e156f0297affa7cea5f52043945ee1d2dc4c0664cff2dfdbbb938cdf287409",
+    "fnv64": "d3c79d562914b13d",
+    "patched_sha256": "2dd6ff7a685ac65be59a55d9183d6d337abfeb4787e0f81a1d4d45596f9484f8",
+    "changes": [
+      {
+        "offset": 1740,
+        "before": "00004dc4",
+        "after": "00c08fc4",
+        "description": "L_GuideRoom_00: horizontal position"
+      },
+      {
+        "offset": 2172,
+        "before": "00804f44",
+        "after": "00009144",
+        "description": "L_Road_00: horizontal position"
+      },
+      {
+        "offset": 2280,
+        "before": "00803b44",
+        "after": "00008744",
+        "description": "L_Album_00: horizontal position"
+      },
+      {
+        "offset": 2396,
+        "before": "00803b44",
+        "after": "00008744",
+        "description": "L_AlbumHotel_00: horizontal position"
+      },
+      {
+        "offset": 2636,
+        "before": "00801ec4",
+        "after": "000071c4",
+        "description": "L_MealEf_00: horizontal position"
+      },
+      {
+        "offset": 4036,
+        "before": "00804f44",
+        "after": "00009144",
+        "description": "L_EffectCloth_00: horizontal position"
+      },
+      {
+        "offset": 4152,
+        "before": "00004dc4",
+        "after": "00c08fc4",
+        "description": "L_EffectClothGuide_00: horizontal position"
+      },
+      {
+        "offset": 4264,
+        "before": "00004dc4",
+        "after": "00c08fc4",
+        "description": "L_NpcOnOffGuide_00: horizontal position"
+      },
+      {
+        "offset": 4408,
+        "before": "0040e244",
+        "after": "00601a45",
+        "description": "N_Align_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "KeyGuide.arc/blyt/KeyGuide.bflyt",
+    "size": 1040,
+    "sha256": "4c272a4f65a443c9de62812a2d3ad0d28f31891cec62443eb677dac302c7b134",
+    "fnv64": "ddd15f604d1a8222",
+    "patched_sha256": "3d5159a71c9a19056db7ed1b2c4bcc3f7aa9d6c987bb57dd372a85e9f8091402",
+    "changes": [
+      {
+        "offset": 320,
+        "before": "0040e244",
+        "after": "00601a45",
+        "description": "N_Align_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "SaveIcon.arc/blyt/SaveIcon.bflyt",
+    "size": 4492,
+    "sha256": "6de724fc03835e53b3b4ccf7485d3a0fcfa4eb20cf09fa973153eb8aeba31358",
+    "fnv64": "f75f5a7eb2c90627",
+    "patched_sha256": "8a0080782d5708d9a7a50682ff2244e87399f2cff5c444710cac284150bd23f0",
+    "changes": [
+      {
+        "offset": 592,
+        "before": "00006144",
+        "after": "00c09944",
+        "description": "L_SaveLoadIcon_00: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MenuDevice.arc/anim/MenuDevice_Out.bflan",
+    "size": 1516,
+    "sha256": "91ed742a9557635070f5f2257c6f0df715447055e5270dc51d994932abe247d5",
+    "fnv64": "e7cacdc1b0d5a1e8",
+    "patched_sha256": "00799f647fbe77fe0409fb1fae188636eb69fa4a76a41dc16531f902d05c6d45",
+    "changes": [
+      {
+        "offset": 416,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 624,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "N_Capture_00: animated horizontal position"
+      },
+      {
+        "offset": 720,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Light_00: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MenuDevice.arc/anim/MenuDevice_In.bflan",
+    "size": 7700,
+    "sha256": "d09b051098317121bb2739702e7c62df0c60339d393b0043f4c297639ed8c18e",
+    "fnv64": "80a0641984645349",
+    "patched_sha256": "1e1c3038c8ffb28ba64eea7bb8b1445541fed0995b7b0c7ff41dc562b8062717",
+    "changes": [
+      {
+        "offset": 512,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 6116,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "N_Capture_00: animated horizontal position"
+      },
+      {
+        "offset": 6220,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Light_00: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MenuDevice.arc/blyt/MenuDevice.bflyt",
+    "size": 12228,
+    "sha256": "4a241584f43ecc1e0e28449bccce710346eec748cd569c1149276f74bfd11b69",
+    "fnv64": "3f10acefa109df44",
+    "patched_sha256": "3663c3d8c0332acbebc905bbe9450e1dde6409f327c1bb6a1176276b54d0fde0",
+    "changes": [
+      {
+        "offset": 2920,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Light_00: horizontal position"
+      },
+      {
+        "offset": 3056,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "N_Capture_00: horizontal position"
+      },
+      {
+        "offset": 3636,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Base_00: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MenuDevice.arc/anim/MenuDevice_DemoInstall.bflan",
+    "size": 3692,
+    "sha256": "c65a41017e1e3945914ba1d8e8a9099419c05e199063d85f847a6171734de58c",
+    "fnv64": "1405e95436cc4a24",
+    "patched_sha256": "c69ac4c85d116f08d8a465f1ab01a31b4cbe25a08f28d86d2099324a161e1823",
+    "changes": [
+      {
+        "offset": 632,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 1388,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "N_Capture_00: animated horizontal position"
+      },
+      {
+        "offset": 1524,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Light_00: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MenuMobileBank.arc/blyt/MenuMobileBank.bflyt",
+    "size": 12268,
+    "sha256": "82b6123af08b3736ff7020d72e5d902cc079fc6273d099b472d69cb786057784",
+    "fnv64": "8dd1c07efa7faaf0",
+    "patched_sha256": "9d01b8f439d31c0352fafc2b1ab80b9b7819eeab2ae01c85a08f903a3e8adfee",
+    "changes": [
+      {
+        "offset": 3648,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 3876,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_15: width"
+      },
+      {
+        "offset": 4020,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_16: width"
+      },
+      {
+        "offset": 4164,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_17: width"
+      },
+      {
+        "offset": 4308,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_18: width"
+      },
+      {
+        "offset": 7176,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_01: width"
+      },
+      {
+        "offset": 7320,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_02: width"
+      },
+      {
+        "offset": 7464,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_03: width"
+      },
+      {
+        "offset": 7608,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_04: width"
+      },
+      {
+        "offset": 7752,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuMobileBankPoki.arc/blyt/MenuMobileBankPoki.bflyt",
+    "size": 20600,
+    "sha256": "e938b3b7888982782f353860edc272f2df4dd9a8ab18dde70460b21d30cc2d8b",
+    "fnv64": "f791a7381ae40027",
+    "patched_sha256": "cdeeab9eb322665aadb88ac46225746e9839b316ceaa165083541a30538ea265",
+    "changes": [
+      {
+        "offset": 5800,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 6028,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_15: width"
+      },
+      {
+        "offset": 6172,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_16: width"
+      },
+      {
+        "offset": 6316,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_17: width"
+      },
+      {
+        "offset": 6460,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_18: width"
+      },
+      {
+        "offset": 14984,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_01: width"
+      },
+      {
+        "offset": 15128,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_02: width"
+      },
+      {
+        "offset": 15272,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_03: width"
+      },
+      {
+        "offset": 15416,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_04: width"
+      },
+      {
+        "offset": 15560,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "Catalog.arc/blyt/Catalog.bflyt",
+    "size": 27388,
+    "sha256": "1530acedebdea9c2a85db8f1e33cea8e861c5d4e6a784fbb6c7f120266344a8b",
+    "fnv64": "eb7b07f8be586aa0",
+    "patched_sha256": "47b1d8b8daa95af970771177f19991c9b9737cac64cbfa150882f5dbad3f16b5",
+    "changes": [
+      {
+        "offset": 6600,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_10: width"
+      },
+      {
+        "offset": 6744,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_11: width"
+      },
+      {
+        "offset": 6888,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_12: width"
+      },
+      {
+        "offset": 7032,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_13: width"
+      },
+      {
+        "offset": 7176,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_14: width"
+      },
+      {
+        "offset": 7512,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_15: width"
+      },
+      {
+        "offset": 7656,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_16: width"
+      },
+      {
+        "offset": 7800,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_17: width"
+      },
+      {
+        "offset": 7944,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_18: width"
+      },
+      {
+        "offset": 8088,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_19: width"
+      },
+      {
+        "offset": 17680,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_00: width"
+      },
+      {
+        "offset": 17824,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_02: width"
+      },
+      {
+        "offset": 17968,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_01: width"
+      },
+      {
+        "offset": 18112,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_03: width"
+      },
+      {
+        "offset": 18256,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_04: width"
+      },
+      {
+        "offset": 18592,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_05: width"
+      },
+      {
+        "offset": 18736,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_06: width"
+      },
+      {
+        "offset": 18880,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_07: width"
+      },
+      {
+        "offset": 19024,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_08: width"
+      },
+      {
+        "offset": 19168,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_09: width"
+      }
+    ]
+  },
+  {
+    "resource": "NatteeCatalog.arc/blyt/NatteeCatalog.bflyt",
+    "size": 15052,
+    "sha256": "14dfbd662885123ae0d6f389a2b0e93f12e5275b8d62705d45bddd4054395aca",
+    "fnv64": "33dd8ad1f14eb565",
+    "patched_sha256": "ec471d38928c325e401a43ecbd8a1bb6d96062a99f125508e7109a066616eb47",
+    "changes": [
+      {
+        "offset": 3584,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_07: width"
+      },
+      {
+        "offset": 3728,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_05: width"
+      },
+      {
+        "offset": 3872,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_08: width"
+      },
+      {
+        "offset": 4016,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_06: width"
+      },
+      {
+        "offset": 11312,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_00: width"
+      },
+      {
+        "offset": 11456,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_02: width"
+      },
+      {
+        "offset": 11600,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_01: width"
+      },
+      {
+        "offset": 11744,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_03: width"
+      },
+      {
+        "offset": 11888,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_04: width"
+      }
+    ]
+  },
+  {
+    "resource": "HotelCatalog.arc/blyt/HotelCatalog.bflyt",
+    "size": 11988,
+    "sha256": "87fb227412a10b33bf6d1bec1720ec0d2a59b7565d2dc00c34287b84a67264a6",
+    "fnv64": "d8efa227761392e8",
+    "patched_sha256": "4c82ec4ba197f96f3ba9c4049edc4f92a89cba32aea8514fec33e3a6cb2b18f9",
+    "changes": [
+      {
+        "offset": 2704,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_07: width"
+      },
+      {
+        "offset": 2848,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_05: width"
+      },
+      {
+        "offset": 2992,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_08: width"
+      },
+      {
+        "offset": 3136,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_06: width"
+      },
+      {
+        "offset": 10432,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_00: width"
+      },
+      {
+        "offset": 10576,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_02: width"
+      },
+      {
+        "offset": 10720,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_01: width"
+      },
+      {
+        "offset": 10864,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_pict_03: width"
+      }
+    ]
+  },
+  {
+    "resource": "WherearenInspect.arc/blyt/WherearenInspect.bflyt",
+    "size": 23048,
+    "sha256": "1af7e8d6ebfc7535e648217cd7c1d72063f6155b03e775129dfb5a0e8b9db39d",
+    "fnv64": "30d4b7107579f01b",
+    "patched_sha256": "d9943630a0120c2c1fd518fa0a54348b45dce7d73b04053d6a4b1a888f6353aa",
+    "changes": [
+      {
+        "offset": 7464,
+        "before": "00800a45",
+        "after": "00c03345",
+        "description": "P_HeaderBase_00: width"
+      },
+      {
+        "offset": 7600,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_HeaderPattern_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "ClientListBG.arc/blyt/ClientListBG.bflyt",
+    "size": 6008,
+    "sha256": "b1588280ee82744c600549e988dd2cc7e4b3436ca77423c97250442c2f7f246c",
+    "fnv64": "3cf0dd5c9d1b6b69",
+    "patched_sha256": "6fe76baf3c95888ff044625a38917825c59d81cb024540b498c5a13a4a0d4cce",
+    "changes": [
+      {
+        "offset": 2004,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 2148,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_01: width"
+      },
+      {
+        "offset": 2384,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_00: width"
+      },
+      {
+        "offset": 2528,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_00: width"
+      },
+      {
+        "offset": 2772,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_01: width"
+      },
+      {
+        "offset": 2916,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_01: width"
+      },
+      {
+        "offset": 3160,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_02: width"
+      },
+      {
+        "offset": 3304,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_02: width"
+      },
+      {
+        "offset": 3548,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_03: width"
+      },
+      {
+        "offset": 3692,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_03: width"
+      },
+      {
+        "offset": 3936,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_04: width"
+      },
+      {
+        "offset": 4080,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_04: width"
+      },
+      {
+        "offset": 4324,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_05: width"
+      },
+      {
+        "offset": 4468,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_05: width"
+      },
+      {
+        "offset": 4712,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_06: width"
+      },
+      {
+        "offset": 4856,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_06: width"
+      },
+      {
+        "offset": 5100,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBg_07: width"
+      },
+      {
+        "offset": 5244,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ColorBgPat_07: width"
+      }
+    ]
+  },
+  {
+    "resource": "CatalogBG.arc/blyt/CatalogBG.bflyt",
+    "size": 1120,
+    "sha256": "a3d0556cb3e83b589400b2b6f1a677c58d69fb719ea1531ea598bbea42c0489c",
+    "fnv64": "a280202a5cb131c0",
+    "patched_sha256": "c601edd61329f0dcaf2c376757a4846676f54168366f86125aaa5d79feaf80cd",
+    "changes": [
+      {
+        "offset": 780,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CatalogGiftBG.arc/blyt/CatalogGiftBG.bflyt",
+    "size": 1128,
+    "sha256": "779047faf7efd28fc520a2dfd94ee695fecc54f70655ef0bd3f28ac3639ca407",
+    "fnv64": "5c660b63557bb197",
+    "patched_sha256": "20bf1ec2ba90b4a5bf2189f704975b7ad217a0d9d7ba56e92930d926cdf528f7",
+    "changes": [
+      {
+        "offset": 788,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "NatteeCatalogBG.arc/blyt/NatteeCatalogBG.bflyt",
+    "size": 1124,
+    "sha256": "f2f873cdf3560ee23da4cd872911ebbe5a8311861f94149075985353bf22dc5b",
+    "fnv64": "f6f87a4e7eaffc18",
+    "patched_sha256": "8e9308b8b5cdcf0f23c1b0a8b810e94e07064e66b0e38559607aaaa9c1841e39",
+    "changes": [
+      {
+        "offset": 784,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "HotelCatalogBG.arc/blyt/HotelCatalogBG.bflyt",
+    "size": 1484,
+    "sha256": "9d12aa81bfd639f9b577d4f2c684a044cd377da7b75592eb2cfd9b0c868c21c8",
+    "fnv64": "68072ad2dbdda4bf",
+    "patched_sha256": "82d5d6ba8461b1dc1ddc27feb00c412baae57121e0e30b49e329c5998362911b",
+    "changes": [
+      {
+        "offset": 944,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "WipeInterior.arc/blyt/WipeInterior.bflyt",
+    "size": 5128,
+    "sha256": "50f81497a58754120d33815ca59c4c392e7b4bb0bd5e9d0f8afca0bdd61c96ec",
+    "fnv64": "0a607511b53ae2e8",
+    "patched_sha256": "f4753b2b64d619de41e4530aaea96256fadebf9cbdc7b50e902950599dd9f0d9",
+    "changes": [
+      {
+        "offset": 1208,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale X"
+      },
+      {
+        "offset": 1212,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale Y"
+      },
+      {
+        "offset": 4700,
+        "before": "00c03c44",
+        "after": "47dc4944",
+        "description": "P_Icon_00: horizontal position"
+      },
+      {
+        "offset": 4704,
+        "before": "0000cbc3",
+        "after": "dc1197c3",
+        "description": "P_Icon_00: vertical position"
+      },
+      {
+        "offset": 4724,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale X"
+      },
+      {
+        "offset": 4728,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "WipeInteriorStudio.arc/blyt/WipeInteriorStudio.bflyt",
+    "size": 5132,
+    "sha256": "d8f744718881cd7a321df319db7a3d6922bc29a681c2cc44c33e1e8ae56fa9cb",
+    "fnv64": "c8b1a0e166fd8a22",
+    "patched_sha256": "58960f3f309364e6fa048092e2da57b655d9cdd7af13cf0fdf1c6f83d334e81a",
+    "changes": [
+      {
+        "offset": 1212,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale X"
+      },
+      {
+        "offset": 1216,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale Y"
+      },
+      {
+        "offset": 4704,
+        "before": "00c03c44",
+        "after": "47dc4944",
+        "description": "P_Icon_00: horizontal position"
+      },
+      {
+        "offset": 4708,
+        "before": "0000cbc3",
+        "after": "dc1197c3",
+        "description": "P_Icon_00: vertical position"
+      },
+      {
+        "offset": 4728,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale X"
+      },
+      {
+        "offset": 4732,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "WipeInteriorWherearenIslands.arc/blyt/WipeInteriorWherearenIslands.bflyt",
+    "size": 5708,
+    "sha256": "f363157e3695d05a080be5f6a13fbac6668ae45610f93476886e05a7e3535eba",
+    "fnv64": "b7289e891629e930",
+    "patched_sha256": "bbc7c37f821ea48629e4f82f69aeeef99403b467a36ccb4a33c927a0fe06c131",
+    "changes": [
+      {
+        "offset": 1404,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale X"
+      },
+      {
+        "offset": 1408,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale Y"
+      },
+      {
+        "offset": 4996,
+        "before": "00c03c44",
+        "after": "47dc4944",
+        "description": "P_Icon_00: horizontal position"
+      },
+      {
+        "offset": 5000,
+        "before": "0000cbc3",
+        "after": "dc1197c3",
+        "description": "P_Icon_00: vertical position"
+      },
+      {
+        "offset": 5020,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale X"
+      },
+      {
+        "offset": 5024,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "WipeInteriorCloudIsland.arc/blyt/WipeInteriorCloudIsland.bflyt",
+    "size": 5184,
+    "sha256": "b065aef5ecb5754b674b557e685c148256ef10bf79755e475a9cf6786f4d115b",
+    "fnv64": "5310611155bd9e43",
+    "patched_sha256": "115892578e00f7366dc15a160a5c77aa336c8201794eef17971ec1e39217dfcb",
+    "changes": [
+      {
+        "offset": 880,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale X"
+      },
+      {
+        "offset": 884,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale Y"
+      },
+      {
+        "offset": 4472,
+        "before": "00c03c44",
+        "after": "47dc4944",
+        "description": "P_Icon_00: horizontal position"
+      },
+      {
+        "offset": 4476,
+        "before": "0000cbc3",
+        "after": "dc1197c3",
+        "description": "P_Icon_00: vertical position"
+      },
+      {
+        "offset": 4496,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale X"
+      },
+      {
+        "offset": 4500,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "WipeInteriorHotelRoom.arc/blyt/WipeInteriorHotelRoom.bflyt",
+    "size": 9628,
+    "sha256": "41cbb206b58ed3b9c76efae98b4817bf968b61aa44cb6b8eb61c1977897b363a",
+    "fnv64": "fe7bbe523983c2e7",
+    "patched_sha256": "3a24b9251a61761e83e611d15e7f75eebd7cec3f9c225c62bbae6e1c5f151742",
+    "changes": [
+      {
+        "offset": 1772,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale X"
+      },
+      {
+        "offset": 1776,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "N_All_00: scale Y"
+      },
+      {
+        "offset": 8916,
+        "before": "00c03c44",
+        "after": "47dc4944",
+        "description": "P_Icon_00: horizontal position"
+      },
+      {
+        "offset": 8920,
+        "before": "0000cbc3",
+        "after": "dc1197c3",
+        "description": "P_Icon_00: vertical position"
+      },
+      {
+        "offset": 8940,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale X"
+      },
+      {
+        "offset": 8944,
+        "before": "0000803f",
+        "after": "fa823e3f",
+        "description": "P_Icon_00: scale Y"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDevice.arc/blyt/WipeDevice.bflyt",
+    "size": 2264,
+    "sha256": "f79675bed3a3677792ec38c1ad2d6b5773abea65d5575944bdc6edb006833e12",
+    "fnv64": "1c4ee2b74db52db5",
+    "patched_sha256": "1048ca552cc032c9be52a06649b827ebbef2ff40e063ae88edc2ba003b999cfb",
+    "changes": [
+      {
+        "offset": 860,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: horizontal position"
+      },
+      {
+        "offset": 892,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 896,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: height"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDevice.arc/anim/WipeDevice_OutAppClose.bflan",
+    "size": 696,
+    "sha256": "65e84242b4bc1906aeadc02fcd5fa8b04ca3a7f4d922df8d8adcf1e0676d4843",
+    "fnv64": "34495d79f1c6d0bd",
+    "patched_sha256": "b960efd671262daa49b5645494c1c39936ac7c8e3f2cd49679dbb31d28c71f57",
+    "changes": [
+      {
+        "offset": 216,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 228,
+        "before": "0000fdc3",
+        "after": "000051c4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 288,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 292,
+        "before": "0000fac3",
+        "after": "a2c153c4",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 324,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 348,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 352,
+        "before": "a0dca9c3",
+        "after": "28951dc4",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 384,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDevice.arc/anim/WipeDevice_Out.bflan",
+    "size": 972,
+    "sha256": "5964df747f0dfe1c36b463a1399f489d718fa1ea7a8dc78dd1d39625466bf67a",
+    "fnv64": "7b19752a47bf4307",
+    "patched_sha256": "2da4057b8e1cde26392fbafe93649abe6ed2dc045aa0fb11cbdff45cc62a9594",
+    "changes": [
+      {
+        "offset": 264,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 312,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 336,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDevice.arc/anim/WipeDevice_In.bflan",
+    "size": 1272,
+    "sha256": "fee0da9ca66de51b3b7236057d473bd4158de823fa6742cf1228bacc639905d7",
+    "fnv64": "8e09af2b0b5a6e60",
+    "patched_sha256": "74ea4214217c0a7dcbd19ca506436a2d4dd5672c3aff285b12f0596d7d7f4378",
+    "changes": [
+      {
+        "offset": 292,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 352,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 356,
+        "before": "0000fa43",
+        "after": "ac3e4944",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 364,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 400,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 404,
+        "before": "01eeea43",
+        "after": "87a04f44",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 412,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDevice.arc/anim/WipeDevice_InAppClose.bflan",
+    "size": 588,
+    "sha256": "c941778e94c7f0bf67252a74b90da3bcb0ebe2dbb4b36d4160ebe7e96eab1f0d",
+    "fnv64": "d423c247e59766ef",
+    "patched_sha256": "7d8e658f3bcb4f34f4f719ef77c2cb3b6b8ede0b1b06d5529ff3ebebb102bc9a",
+    "changes": [
+      {
+        "offset": 216,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 264,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 288,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDeviceLoad.arc/anim/WipeDeviceLoad_OutAppClose.bflan",
+    "size": 708,
+    "sha256": "e9406e71ee8c7961ffea3090c7647df2774c10dd148cde4a378c9b01f3d90aaa",
+    "fnv64": "e01a853d68650517",
+    "patched_sha256": "33dfeee7a942723711981f25cde44c9e6f5ffb198fa33fa697099648231880a9",
+    "changes": [
+      {
+        "offset": 316,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 328,
+        "before": "0000b4c3",
+        "after": "00802cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 388,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 392,
+        "before": "0000fac3",
+        "after": "943649c4",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 424,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 448,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 452,
+        "before": "a0dca9c3",
+        "after": "3ffd15c4",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 484,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDeviceLoad.arc/blyt/WipeDeviceLoad.bflyt",
+    "size": 2272,
+    "sha256": "4e1356b84cde3109ff05ea2f95c474dc87112a4a883b9a372ae5dcd39cd8307b",
+    "fnv64": "358be1f3d8c20c92",
+    "patched_sha256": "3b3dd7ffecd864921681eb86b2350c086b70ef933c2def3eb69d2797df5ac400",
+    "changes": [
+      {
+        "offset": 868,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: horizontal position"
+      },
+      {
+        "offset": 900,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 904,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: height"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDeviceLoad.arc/anim/WipeDeviceLoad_In.bflan",
+    "size": 1272,
+    "sha256": "42b380d0f93b2599909b548c6611db508a69661b81533bbb4c719944c6be4ebd",
+    "fnv64": "70844f6c073cf9ac",
+    "patched_sha256": "a2146c66fe60cd4d09cb65db25d3f8c78647f239fb77c4b034dcc40fbb70dcab",
+    "changes": [
+      {
+        "offset": 844,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 904,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 908,
+        "before": "0000fa43",
+        "after": "ac3e4944",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 916,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 952,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 956,
+        "before": "01eeea43",
+        "after": "87a04f44",
+        "description": "P_Base_00: resized mask Hermite tangent"
+      },
+      {
+        "offset": 964,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDeviceLoad.arc/anim/WipeDeviceLoad_InAppClose.bflan",
+    "size": 600,
+    "sha256": "b26334a5e98faeafea60e9e551d9e3e7c48df28550a8f3471ba70828f4885148",
+    "fnv64": "4fbb5cd07f372691",
+    "patched_sha256": "ad4c5fa91be9cbd0bc627685eda431682529747cf4d1ad758d97401161acfd89",
+    "changes": [
+      {
+        "offset": 316,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 364,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 388,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "WipeDeviceLoad.arc/anim/WipeDeviceLoad_Out.bflan",
+    "size": 972,
+    "sha256": "399ba32aad150745fe06b8ce94f6aa4b1203518b8bb00c0466c57497535ea85c",
+    "fnv64": "9ed79aac5d5461db",
+    "patched_sha256": "dbb4498177ed05a9a965dbdbd8b7bdf9f9574b089135c85637a6183cb7914cb9",
+    "changes": [
+      {
+        "offset": 648,
+        "before": "0080b4c3",
+        "after": "00c02cc4",
+        "description": "P_Base_00: animated horizontal position"
+      },
+      {
+        "offset": 696,
+        "before": "00c03745",
+        "after": "00d08945",
+        "description": "P_Base_00: animated extent"
+      },
+      {
+        "offset": 720,
+        "before": "00000e45",
+        "after": "00005545",
+        "description": "P_Base_00: animated extent"
+      }
+    ]
+  },
+  {
+    "resource": "MenuRecipe.arc/blyt/MenuRecipe.bflyt",
+    "size": 24148,
+    "sha256": "281fa60bd3e8efb55f2b8b20992b85e2755c2a2e48872664f2b36a5ad8cefcf5",
+    "fnv64": "e02dd3766175a5a0",
+    "patched_sha256": "499ae204e7c82a3d82c6680768ba0438a31479a44c2c1082cf737fa68f273b1d",
+    "changes": [
+      {
+        "offset": 4744,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 14312,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Tex_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuPointQuestList.arc/blyt/MenuPointQuestList.bflyt",
+    "size": 7948,
+    "sha256": "ed08b0fc9d2b2ef87d4ce633fcc279310f9493bb690d2008aefe02055c6f9ec8",
+    "fnv64": "4b28f0b68f16221d",
+    "patched_sha256": "9d7d2fce3ae195fdfd55cf1548449ff5baa803c0b010ad3a15a7bbcd55ef592a",
+    "changes": [
+      {
+        "offset": 2256,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Pattern_00: width"
+      },
+      {
+        "offset": 2392,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Pattern_02: width"
+      },
+      {
+        "offset": 2528,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Pattern_01: width"
+      },
+      {
+        "offset": 2664,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_PatternEvent_00: width"
+      },
+      {
+        "offset": 4720,
+        "before": "00800945",
+        "after": "00c03245",
+        "description": "P_TitleBase_00: width"
+      },
+      {
+        "offset": 6976,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Tex_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuPointTopBar.arc/blyt/MenuPointTopBar.bflyt",
+    "size": 3708,
+    "sha256": "67c2d4f0271f3598520d9dca02a9099c578e5f4aea8b39067fa36ae7fe6dcce2",
+    "fnv64": "47b81155eec27ce8",
+    "patched_sha256": "f7241ee2023aa8ae5fad48e9d635fedbdabaa94573ac74f3d4c469821c455562",
+    "changes": [
+      {
+        "offset": 1704,
+        "before": "00401c45",
+        "after": "00804545",
+        "description": "P_BtmFrame_00: width"
+      },
+      {
+        "offset": 1840,
+        "before": "00401c45",
+        "after": "00804545",
+        "description": "P_BtmFrame_01: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuPointResultBg.arc/blyt/MenuPointResultBg.bflyt",
+    "size": 1044,
+    "sha256": "6b5f2e1186073e5d8cf41b66d5c84e781a5fd2000f467abc0669c4576dc0a4eb",
+    "fnv64": "5ca25951b1b31740",
+    "patched_sha256": "0ee89fb99fd357b3030be7ae281076450f157d0e9585be3e288e7a021511c805",
+    "changes": [
+      {
+        "offset": 704,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 840,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Tex_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuBook.arc/blyt/MenuBook.bflyt",
+    "size": 30980,
+    "sha256": "5e3ed0d72bc18ca04682804f4a4ea11e3393d0588da865cf8b7af1ec5f6387df",
+    "fnv64": "f552f8aae8095acb",
+    "patched_sha256": "13d0dca3f74feee842a21f277d1bf7e80e5ae329bf5ccaaaa912a4fc216e1c5a",
+    "changes": [
+      {
+        "offset": 3452,
+        "before": "00201945",
+        "after": "00604245",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 26592,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Wipe_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuBookDetail.arc/blyt/MenuBookDetail.bflyt",
+    "size": 7236,
+    "sha256": "0914fc5100ce1370e9d38060b31d093dfbab3a8d1d8e0106e94d3415c8c6a56a",
+    "fnv64": "aa38e42352729e5c",
+    "patched_sha256": "5f4d5a4812dea923534f8dc34710efc4b8195499f519e8b00d41447beb622630",
+    "changes": [
+      {
+        "offset": 3000,
+        "before": "00201945",
+        "after": "00604245",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 3228,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Wipe_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuMapFull.arc/blyt/MenuMapFull.bflyt",
+    "size": 16300,
+    "sha256": "0bb1770ab25ff9a7fe46f9cf148235930a7c85171a87f8f37464df0680c2315f",
+    "fnv64": "af254a8f28859875",
+    "patched_sha256": "0adbddaa2da7bdd003ea08689dc7614139cc5ba372596b1e2cb38e757b7bdb47",
+    "changes": [
+      {
+        "offset": 4260,
+        "before": "00201945",
+        "after": "00604245",
+        "description": "P_Base_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuProfileBg.arc/blyt/MenuProfileBg.bflyt",
+    "size": 1696,
+    "sha256": "a73e128e9dd284bb196e068b624a60b007b369a682d7d3b3f79c2b19a01590bc",
+    "fnv64": "1e99bcc08fe7b578",
+    "patched_sha256": "277622104f4f8f15800a74b55eafa426c3f41700124372268920a39cb06701d4",
+    "changes": [
+      {
+        "offset": 808,
+        "before": "00201945",
+        "after": "00604245",
+        "description": "P_Bg_01: width"
+      },
+      {
+        "offset": 944,
+        "before": "00201945",
+        "after": "00604245",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "LCmnBg.arc/blyt/LCmnBg.bflyt",
+    "size": 1000,
+    "sha256": "e3b2cf926848588556c9235bcfe4225ce3f3245794f0ffcbb73a7260fa498f8b",
+    "fnv64": "d0b3390eead9857b",
+    "patched_sha256": "4d65b8e7209f44f68a38f8107af724776e5cc44ec11371066b290aadf2f8133d",
+    "changes": [
+      {
+        "offset": 564,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 700,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_01: width"
+      },
+      {
+        "offset": 836,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Dot_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuChatLog.arc/blyt/MenuChatLog.bflyt",
+    "size": 6304,
+    "sha256": "a5560515e9c178963e629e4325cfa3e2c0f8dd149b42e5df2336f9128353a39e",
+    "fnv64": "121a84cdbb69bd66",
+    "patched_sha256": "61825f0577fe809653bd3b5ead44f6df27332886151ab7a10feded9c34cddf63",
+    "changes": [
+      {
+        "offset": 644,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CaptureMask_00: capture projection scale X"
+      },
+      {
+        "offset": 768,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CaptureDown_00: capture projection scale X"
+      },
+      {
+        "offset": 2052,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      },
+      {
+        "offset": 2412,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 2548,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 2684,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      },
+      {
+        "offset": 2920,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "N_Capture_00: width"
+      },
+      {
+        "offset": 5116,
+        "before": "00801d45",
+        "after": "00c04645",
+        "description": "P_CaptureMask_00: width"
+      },
+      {
+        "offset": 5352,
+        "before": "00801d45",
+        "after": "00c04645",
+        "description": "P_CaptureDown_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuLoadTips.arc/blyt/MenuLoadTips.bflyt",
+    "size": 6284,
+    "sha256": "adb031f021639f0e9edfe7246391f8a57bf81592322d7fcc563c64e06ccaa745",
+    "fnv64": "affb03c6b3ad0828",
+    "patched_sha256": "2a8599cb3b8aa6ac923a240a991ec4381ff0fc041870351083bfadd23707e9a7",
+    "changes": [
+      {
+        "offset": 644,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CaptureMask_00: capture projection scale X"
+      },
+      {
+        "offset": 768,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CaptureDown_00: capture projection scale X"
+      },
+      {
+        "offset": 2052,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      },
+      {
+        "offset": 2412,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 2548,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 2684,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      },
+      {
+        "offset": 2920,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "N_Capture_00: width"
+      },
+      {
+        "offset": 5292,
+        "before": "00801d45",
+        "after": "00c04645",
+        "description": "P_CaptureMask_00: width"
+      },
+      {
+        "offset": 5528,
+        "before": "00801d45",
+        "after": "00c04645",
+        "description": "P_CaptureDown_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "BootBG.arc/blyt/BootBG.bflyt",
+    "size": 1248,
+    "sha256": "886a09979000baac89b2f2b673db59764e90d45ea8c7d81135e1340809b83fe4",
+    "fnv64": "5ad0135acd0e041b",
+    "patched_sha256": "c269afb290b8260fd055a26eed9cf70460808c3d814e1d4a69e6c40976c7a985",
+    "changes": [
+      {
+        "offset": 680,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BlackBG_00: width"
+      },
+      {
+        "offset": 908,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      },
+      {
+        "offset": 1044,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Dot_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "ClosetBG.arc/blyt/ClosetBG.bflyt",
+    "size": 2684,
+    "sha256": "a4376fa54d38e5798dfc83cf0dafc8d0bcaf37c77f3ded8ac939ec7053489a71",
+    "fnv64": "05154a91536aec42",
+    "patched_sha256": "60fa44034fac1ba0355cdf532467db71aa734e5a52b52b467cdf0da9cf6bd153",
+    "changes": [
+      {
+        "offset": 1324,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 1652,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_01: width"
+      },
+      {
+        "offset": 1788,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_02: width"
+      },
+      {
+        "offset": 2124,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_03: width"
+      }
+    ]
+  },
+  {
+    "resource": "CastClosetBG.arc/blyt/CastClosetBG.bflyt",
+    "size": 2152,
+    "sha256": "a695bd99b11417f9b5b2c14dd24c7672d0f35021b1096e607f70a4745cf3f987",
+    "fnv64": "450f4b1a6ace0537",
+    "patched_sha256": "61d0eb5a4f150597de1292f4451c2090d433afc16d5d732c9fe81f244241b30e",
+    "changes": [
+      {
+        "offset": 1200,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 1528,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_01: width"
+      },
+      {
+        "offset": 1664,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_03: width"
+      },
+      {
+        "offset": 1800,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_02: width"
+      }
+    ]
+  },
+  {
+    "resource": "WorkClosetBG.arc/blyt/WorkClosetBG.bflyt",
+    "size": 2200,
+    "sha256": "4988030bbf0d2e96af225aa83524417c53383630899ea2642e099e0c8eb389f5",
+    "fnv64": "24fcfa8476f7a14b",
+    "patched_sha256": "431787e59397855c7ff69de482d874d057b1ef4ff2192e2f44491fa24ca140c5",
+    "changes": [
+      {
+        "offset": 1024,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 1688,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_01: width"
+      }
+    ]
+  },
+  {
+    "resource": "HotelCordeMannequinBg.arc/blyt/HotelCordeMannequinBg.bflyt",
+    "size": 3140,
+    "sha256": "c73170cc093e7289da0622c7d8070d3c8d35d3d89f1083950edca489875d2cd9",
+    "fnv64": "90ed5a7cf0c3c2b9",
+    "patched_sha256": "3b88c36b3252440696211c869c3e1360a485ab2b6075a2a029ef6ace5dd125c9",
+    "changes": [
+      {
+        "offset": 1596,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 2260,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_03: width"
+      },
+      {
+        "offset": 2396,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_02: width"
+      },
+      {
+        "offset": 2532,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_01: width"
+      }
+    ]
+  },
+  {
+    "resource": "CharaMakeBG.arc/blyt/CharaMakeBG.bflyt",
+    "size": 2364,
+    "sha256": "f6abe6102e76829d04ef23a65a50b73ba0f88505945a0c68115da47dd8d5e0b3",
+    "fnv64": "5c92c0245eb09eb5",
+    "patched_sha256": "81e1b5e51dd8d9f88c957fbeed7950d0280dfcb727a2548ae3ef3e6634870986",
+    "changes": [
+      {
+        "offset": 1280,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FirstTimeSheet_00: width"
+      },
+      {
+        "offset": 1416,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FirstTimeTex_00: width"
+      },
+      {
+        "offset": 1788,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Dresser_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CastMainBG.arc/blyt/CastMainBG.bflyt",
+    "size": 1272,
+    "sha256": "5ed105b375edafab6952956a07548c7e70b91171b58f756f21592b03c388d61a",
+    "fnv64": "f3ebd1866fd21eac",
+    "patched_sha256": "443ddb599290beb1a4122a0424eb63373125d7308deefc8a2c954c1c4e3981df",
+    "changes": [
+      {
+        "offset": 728,
+        "before": "0000fa44",
+        "after": "00402645",
+        "description": "P_Base_00: width"
+      },
+      {
+        "offset": 864,
+        "before": "0000fa44",
+        "after": "00402645",
+        "description": "P_MatchingBg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CustomFacilityBG.arc/blyt/CustomFacilityBG.bflyt",
+    "size": 3312,
+    "sha256": "a67e070f180408dafdfd85d7d2994ee9180acfd957f43d2b7ea06ff7d1124852",
+    "fnv64": "6debed694167647f",
+    "patched_sha256": "867ef51ce0a4a2405a8ef87467546d9ad2b5ec320aa8b0c132d27f496ab22630",
+    "changes": [
+      {
+        "offset": 1212,
+        "before": "0000fa44",
+        "after": "00402645",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CustomHomeBG.arc/blyt/CustomHomeBG.bflyt",
+    "size": 1984,
+    "sha256": "faccc60afdc2be39ff50abccc89a55907f02eedca04e59d316364e7fe42b04c1",
+    "fnv64": "cba24a328e4bcf4d",
+    "patched_sha256": "01cfb6d582c06d0281851bef35a3138c0bbb60668c7879696566169c9cb86be9",
+    "changes": [
+      {
+        "offset": 808,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CustomNpcHomeBG.arc/blyt/CustomNpcHomeBG.bflyt",
+    "size": 1984,
+    "sha256": "2be8b3b466910b659f4586cb51a53c1ad6db6da58c3db4e4d98435fcb4a6af49",
+    "fnv64": "63fdd0d783b57a90",
+    "patched_sha256": "465a036449d9e6835c4613b841766dee98ecad700c0e0e1dc0e67c753e30727f",
+    "changes": [
+      {
+        "offset": 808,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandCustomHomeBG.arc/blyt/CloudIslandCustomHomeBG.bflyt",
+    "size": 1820,
+    "sha256": "bf88e6dd6d69585322648230e964867044435279209d02fbde12c93bbc00e485",
+    "fnv64": "cc26f6ec5ec60989",
+    "patched_sha256": "003a3141040ba111b9be0fff5424bed58f971611a43913ce77a0b345d5f92042",
+    "changes": [
+      {
+        "offset": 812,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "ShopBridgeSlopeBG.arc/blyt/ShopBridgeSlopeBG.bflyt",
+    "size": 836,
+    "sha256": "75f1e93137a918a5b325fa3d15acef0e584731d93a93939a0079b4b20a1ef099",
+    "fnv64": "f4d27daf32850cbb",
+    "patched_sha256": "d4e1ba6eb1059d11efefa2bce9d7c9acccc2466e3432e8d780404ac20d988598",
+    "changes": [
+      {
+        "offset": 488,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandShopBridgeSlopeBG.arc/blyt/CloudIslandShopBridgeSlopeBG.bflyt",
+    "size": 848,
+    "sha256": "4c849ccdc0d1f417054f7c471f1955ef8b372a87c573124e635ac142171880d3",
+    "fnv64": "fd48dda0b2662a7b",
+    "patched_sha256": "de62326ab595feae276d93985797c087399ea8f6c71f97d04e8575883da4fba4",
+    "changes": [
+      {
+        "offset": 500,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "KitchenBG.arc/blyt/KitchenBG.bflyt",
+    "size": 2408,
+    "sha256": "0fed078b92415490b8ba9ca50e33410e762f4948dcb5c10f5ea0fa42f9a51824",
+    "fnv64": "4af1298fa08823ff",
+    "patched_sha256": "b01cee91a920af26360198643a57cefbced7ac0d5885e234089419537b783788",
+    "changes": [
+      {
+        "offset": 1212,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "WorkBenchBG.arc/blyt/WorkBenchBG.bflyt",
+    "size": 2108,
+    "sha256": "74538ae233d2a481c899a890bc677e619fa7af71a2226a5464782ee1f3a01e19",
+    "fnv64": "774b51ab2e94f139",
+    "patched_sha256": "8d975dac1780e8eb078fd3f0437f57dd87a2738e192248cfbac529ab7957cc05",
+    "changes": [
+      {
+        "offset": 1052,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "WorkBenchRemakeBG.arc/blyt/WorkBenchRemakeBG.bflyt",
+    "size": 1420,
+    "sha256": "e237f64d3ea56b48c735e3a233bbe15fc2db1a183a1335a5e8644d92977dbcdc",
+    "fnv64": "1322b9aa3516fc59",
+    "patched_sha256": "81a2206932713d90b5d016a524c1ecf0241900a9596fbf8f4eeb4b758d1fc948",
+    "changes": [
+      {
+        "offset": 1032,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      },
+      {
+        "offset": 1168,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BGBlur_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "WorkBenchRemakeAlpBG.arc/blyt/WorkBenchRemakeAlpBG.bflyt",
+    "size": 2272,
+    "sha256": "76165094df1c5aad1f47b2f90cbe220cec039bf64664b2817acc56224f5c55fa",
+    "fnv64": "e28fd5d7db7b2a5d",
+    "patched_sha256": "1c03ca8f844b890e65065b68eb186b8e34053ed14e04a93b14d99e9ea35dc2d5",
+    "changes": [
+      {
+        "offset": 1564,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      },
+      {
+        "offset": 1700,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BGBlur_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MyDesignEditBG.arc/blyt/MyDesignEditBG.bflyt",
+    "size": 792,
+    "sha256": "20dc5bc02ab18c6a6b9143d3ad5003d873e8ad2a823ddedec52e2a3b55403487",
+    "fnv64": "dcb8fcf96f34f34c",
+    "patched_sha256": "744eb7e27b0aed08e7874f9caa16969e18620849f68a7fd017700748d7f831d8",
+    "changes": [
+      {
+        "offset": 588,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MyDesignExchBG.arc/blyt/MyDesignExchBG.bflyt",
+    "size": 1040,
+    "sha256": "b9090a78e7c1040a1a7d1bea1527ae049f3f1fde552c2c76293ecc0ea1577532",
+    "fnv64": "770c8057cac468b2",
+    "patched_sha256": "dca97365b1401ad8b7e9cc3a484ff277e90da9febde1e94e837ba0ce299d8528",
+    "changes": [
+      {
+        "offset": 700,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_00: width"
+      },
+      {
+        "offset": 836,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_BG_01: width"
+      }
+    ]
+  },
+  {
+    "resource": "MyDesignFinish.arc/blyt/MyDesignFinish.bflyt",
+    "size": 6112,
+    "sha256": "5367bf76b4a6472a7e2cd794fbec790394411166998c519c9e6387ddbef99102",
+    "fnv64": "850ab92b02a1696a",
+    "patched_sha256": "24d0f2ad90fae9360c08ce28cb70292e9419db88d2ece482500af80525f133be",
+    "changes": [
+      {
+        "offset": 1944,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      },
+      {
+        "offset": 2088,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Base_Mydesign_01: width"
+      },
+      {
+        "offset": 2224,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Base_Mydesign_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "RoomSizeBg.arc/blyt/RoomSizeBg.bflyt",
+    "size": 1040,
+    "sha256": "c5b683c4ebdba1b63383012c74f8bc349a6da4192e92c680660efe0570a36972",
+    "fnv64": "45155e6ca6b5be85",
+    "patched_sha256": "c06e91853722314e23aab032937743a0000653866fa5c17c162d7fb205154318",
+    "changes": [
+      {
+        "offset": 480,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "N_Capture_00: width"
+      },
+      {
+        "offset": 728,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Bg_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "ShopSonkatsuBG.arc/blyt/ShopSonkatsuBG.bflyt",
+    "size": 1156,
+    "sha256": "2f9a0abacf747165c17a792b123099bcc38cc55cb2e10148bf5e339f24a287e3",
+    "fnv64": "1159972bbdafe64a",
+    "patched_sha256": "db47c505ce8c6584d944cd91ea9c14d49f6f1b190f598bb49e132b112b6ecd74",
+    "changes": [
+      {
+        "offset": 792,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Base_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "MyDesignList.arc/anim/MyDesignList_Type.bflan",
+    "size": 444,
+    "sha256": "fc0dbd09831d95988eb97088fab10c88309ec1ab64f3d2771163a6a7539c6ebb",
+    "fnv64": "bbc1105161d8d0bd",
+    "patched_sha256": "2016d0797cd371fd7ac5203f2b0187834c236b28cee941e48536fcdc207a3fdf",
+    "changes": [
+      {
+        "offset": 316,
+        "before": "0000bec2",
+        "after": "0080d4c3",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 328,
+        "before": "0000bec2",
+        "after": "0080d4c3",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "MyDesignList.arc/blyt/MyDesignList.bflyt",
+    "size": 11392,
+    "sha256": "4824297fe15c96a8132f61125531732521ce29e832944eae686033a9beff72be",
+    "fnv64": "fd3facd2dcedf2d9",
+    "patched_sha256": "e7408a05d2e2c987689c9c5de6e33d0a8d7f1f42bdb00f6ecbf918a7fe492043",
+    "changes": [
+      {
+        "offset": 768,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CapMaskDown_00: capture projection scale X"
+      },
+      {
+        "offset": 1256,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CapMaskUp_00: capture projection scale X"
+      },
+      {
+        "offset": 2752,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "N_Capture_00: width"
+      },
+      {
+        "offset": 2888,
+        "before": "0000bec2",
+        "after": "0080d4c3",
+        "description": "N_InOut_01: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandMyDesignList.arc/blyt/CloudIslandMyDesignList.bflyt",
+    "size": 15120,
+    "sha256": "5604553c4b236ca02b0815743bc5ef16ae6e6480841679021bb6b506c80b6603",
+    "fnv64": "7ffb568cd6b98eae",
+    "patched_sha256": "d51f5dd0704559b2d42345185dae11e0accef4f5039f236bf656c07e228ad95b",
+    "changes": [
+      {
+        "offset": 916,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CapMaskDown_00: capture projection scale X"
+      },
+      {
+        "offset": 1404,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_CapMaskUp_00: capture projection scale X"
+      },
+      {
+        "offset": 3900,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "N_Capture_00: width"
+      },
+      {
+        "offset": 4036,
+        "before": "0000bec2",
+        "after": "0080d4c3",
+        "description": "N_InOut_01: horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandMyDesignList.arc/anim/CloudIslandMyDesignList_Type.bflan",
+    "size": 444,
+    "sha256": "fc0dbd09831d95988eb97088fab10c88309ec1ab64f3d2771163a6a7539c6ebb",
+    "fnv64": "bbc1105161d8d0bd",
+    "patched_sha256": "2016d0797cd371fd7ac5203f2b0187834c236b28cee941e48536fcdc207a3fdf",
+    "changes": [
+      {
+        "offset": 316,
+        "before": "0000bec2",
+        "after": "0080d4c3",
+        "description": "N_InOut_01: animated horizontal position"
+      },
+      {
+        "offset": 328,
+        "before": "0000bec2",
+        "after": "0080d4c3",
+        "description": "N_InOut_01: animated horizontal position"
+      }
+    ]
+  },
+  {
+    "resource": "CameraGuide.arc/blyt/CameraGuide.bflyt",
+    "size": 36424,
+    "sha256": "879ea40cedede9eb01d858c45f1900842c3383d46c96f7d82d597e60a4d78838",
+    "fnv64": "c01dea530a6984dc",
+    "patched_sha256": "2091b6d8f83903ba45c62b2ba1c6456a048eb06fb04ef21c09bffea02800f20e",
+    "changes": [
+      {
+        "offset": 10152,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "N_Capture_01: width"
+      },
+      {
+        "offset": 10504,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterSoft_00: width"
+      },
+      {
+        "offset": 10648,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterSoft_01: width"
+      },
+      {
+        "offset": 10792,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterFilm_00: width"
+      },
+      {
+        "offset": 10936,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterFilm_01: width"
+      },
+      {
+        "offset": 11080,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterMono_00: width"
+      },
+      {
+        "offset": 11224,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterMono_01: width"
+      },
+      {
+        "offset": 11368,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterAntique_00: width"
+      },
+      {
+        "offset": 11512,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterAntique_01: width"
+      },
+      {
+        "offset": 11656,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterPoster_00: width"
+      },
+      {
+        "offset": 11984,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterRGBshift_00: width"
+      },
+      {
+        "offset": 12320,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterSecurityCam_00: width"
+      },
+      {
+        "offset": 12564,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_FilterFisheye_00: width"
+      },
+      {
+        "offset": 12992,
+        "before": "0000eb44",
+        "after": "00c01e45",
+        "description": "P_PhotoFrame_00: width"
+      },
+      {
+        "offset": 13128,
+        "before": "0000eb44",
+        "after": "00c01e45",
+        "description": "P_PhotoFrame_01: width"
+      },
+      {
+        "offset": 13232,
+        "before": "000070c4",
+        "after": "0040a1c4",
+        "description": "P_PhotoFrame_02: horizontal position"
+      },
+      {
+        "offset": 13368,
+        "before": "00007044",
+        "after": "0040a144",
+        "description": "P_PhotoFrame_03: horizontal position"
+      },
+      {
+        "offset": 13636,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_KuroObi_00: width"
+      },
+      {
+        "offset": 13772,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_KuroObi_01: width"
+      },
+      {
+        "offset": 14096,
+        "before": "00803244",
+        "after": "00808244",
+        "description": "N_Date_00: horizontal position"
+      },
+      {
+        "offset": 17236,
+        "before": "00405ac4",
+        "after": "006096c4",
+        "description": "N_Filter_00: horizontal position"
+      },
+      {
+        "offset": 19124,
+        "before": "00405ac4",
+        "after": "006096c4",
+        "description": "N_Frame: horizontal position"
+      },
+      {
+        "offset": 20960,
+        "before": "00405a44",
+        "after": "00609644",
+        "description": "N_AppTypeF5_00: horizontal position"
+      },
+      {
+        "offset": 21716,
+        "before": "00405a44",
+        "after": "00609644",
+        "description": "N_Look_00: horizontal position"
+      },
+      {
+        "offset": 22796,
+        "before": "00405a44",
+        "after": "00609644",
+        "description": "N_AllEmoticon_00: horizontal position"
+      },
+      {
+        "offset": 23456,
+        "before": "00405ac4",
+        "after": "006096c4",
+        "description": "N_PlayerOff_00: horizontal position"
+      },
+      {
+        "offset": 24868,
+        "before": "00405ac4",
+        "after": "006096c4",
+        "description": "N_Offset_00: horizontal position"
+      },
+      {
+        "offset": 25488,
+        "before": "00405ac4",
+        "after": "006096c4",
+        "description": "N_Move_01: horizontal position"
+      },
+      {
+        "offset": 26248,
+        "before": "00405ac4",
+        "after": "006096c4",
+        "description": "N_CameraRotat_01: horizontal position"
+      },
+      {
+        "offset": 26676,
+        "before": "00004fc4",
+        "after": "00c090c4",
+        "description": "N_Height_00: horizontal position"
+      },
+      {
+        "offset": 28252,
+        "before": "00405a44",
+        "after": "00609644",
+        "description": "N_CameraRotat_00: horizontal position"
+      },
+      {
+        "offset": 28920,
+        "before": "00004f44",
+        "after": "00c09044",
+        "description": "N_Zoom_00: horizontal position"
+      },
+      {
+        "offset": 31508,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_ModeTransitionWipe_00: width"
+      },
+      {
+        "offset": 31636,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_ModeTransitionWipe_01: scale X"
+      },
+      {
+        "offset": 31640,
+        "before": "0000803f",
+        "after": "0000ac3f",
+        "description": "P_ModeTransitionWipe_01: scale Y"
+      },
+      {
+        "offset": 31916,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "P_Shutter_00: width"
+      }
+    ]
+  },
+  {
+    "resource": "Board.arc/blyt/Board.bflyt",
+    "size": 4520,
+    "sha256": "d81b6f6f201ea6556267d1569c10beac4fade8cf99541eb45f458b829cc340c9",
+    "fnv64": "1281049325e43d74",
+    "patched_sha256": "943f4e6eddceb6558b18f46f4c3351c35e251fde29d4917ab910f18147e5eec8",
+    "changes": [
+      {
+        "offset": 1800,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 1936,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 2072,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "CastList.arc/blyt/CastList.bflyt",
+    "size": 5832,
+    "sha256": "8aef76dc13f8b7c2f4e3ce1cbce703b6f35e2f3806ec97d25102e2215e4dad13",
+    "fnv64": "9f121fef26f74c73",
+    "patched_sha256": "6fd202fbf05d7bccd15b096370fd9f672a362cae1e72e2a7ee5554fb15567cb1",
+    "changes": [
+      {
+        "offset": 2804,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 2940,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 3076,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandMap.arc/blyt/CloudIslandMap.bflyt",
+    "size": 3176,
+    "sha256": "07e63f301ff611cd4143b682dd4c1f2738ea2c45812efa54438831a6fdbb950c",
+    "fnv64": "6f0e8d1a88f4bee6",
+    "patched_sha256": "fe5bd5ef7cb094eb1899160c8095046411e689f9bde3c0fd377726703fefb563",
+    "changes": [
+      {
+        "offset": 1168,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 1304,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 1440,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "CloudIslandSave.arc/blyt/CloudIslandSave.bflyt",
+    "size": 2984,
+    "sha256": "0d111ddde5bf31dace0e12f7c43a725cd35adb9c5ca2c95020912ee77592331f",
+    "fnv64": "7d938f801c03b5f7",
+    "patched_sha256": "5eb3a0c033ab67911eeddce0b4a4236a83ac20ea39feb35f395445e24ffbe0c5",
+    "changes": [
+      {
+        "offset": 1076,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 1212,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 1348,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "DreamFavorite.arc/blyt/DreamFavorite.bflyt",
+    "size": 15212,
+    "sha256": "b597f3c1a10f927ca4b77488f655e2897327b9054b81e54e860d7dfda9ff830e",
+    "fnv64": "30b74dc33198845a",
+    "patched_sha256": "0c740e1b6eb8c9b2bec8d1103873b4e4ac61e15e15f9d50ef5f8be1071ab8596",
+    "changes": [
+      {
+        "offset": 4644,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 4780,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 4916,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "DreamIslandName.arc/blyt/DreamIslandName.bflyt",
+    "size": 11284,
+    "sha256": "0a3904e757652e5b44d3cc41ee5e27bc53d0b112844aa08f5164bf7e7f0ea9c2",
+    "fnv64": "1ea7c14b1b477a4e",
+    "patched_sha256": "1802e366a596a6d62dbbc0d501c9d7d67c4a300f403c080d904e7f94a16f6914",
+    "changes": [
+      {
+        "offset": 3728,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 3864,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 4000,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "LDialogCloudIslandSave.arc/blyt/LDialogCloudIslandSave.bflyt",
+    "size": 7108,
+    "sha256": "ca4c4c0251a1edbe974b8cfd01406cce7667ff77d7440c8aeebaf0e9c3ba1359",
+    "fnv64": "6c0cc1da187828ab",
+    "patched_sha256": "664da031886ba0457b82f8aabd1a4b40b454242234daddcf90cbd8a72fdb4659",
+    "changes": [
+      {
+        "offset": 2044,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 2232,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 2420,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "MenuPointResultDialog.arc/blyt/MenuPointResultDialog.bflyt",
+    "size": 18680,
+    "sha256": "255c41dcd8f571371025d56758538d02e954bf55eb5832db4fdd3227f8638328",
+    "fnv64": "b7a7b749cad05ec3",
+    "patched_sha256": "7316feda0ab0dfdd6918e6e1fa4c1601b13bd658546f49d77639e7b06547472c",
+    "changes": [
+      {
+        "offset": 5564,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 5700,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 5836,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "MyDesignSet.arc/blyt/MyDesignSet.bflyt",
+    "size": 10604,
+    "sha256": "68dd3b42d00d7102afe1c56bc6411b905a4f9030ce78b61b4e069a3a7b99fe9f",
+    "fnv64": "8e5fc1dea6e2248e",
+    "patched_sha256": "bf0ad5bda858f78958f0d3a71dd999535ebd3abd5d27a0c953b688ce25face09",
+    "changes": [
+      {
+        "offset": 3696,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 3832,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 3968,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "ProfileWinPhoto.arc/blyt/ProfileWinPhoto.bflyt",
+    "size": 6588,
+    "sha256": "316c6e92236f72c3cbb2ca0562828ece8f1b6b76beb88c8d119b86ae52e544b3",
+    "fnv64": "065fc9c1b5df5414",
+    "patched_sha256": "6cb997124cc0bc99669433b7a55cd8eb25bbcd3636d35692c2f90ad63ebbc0ba",
+    "changes": [
+      {
+        "offset": 1956,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 2092,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 2228,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  },
+  {
+    "resource": "ProfileWinPlayerTitle.arc/blyt/ProfileWinPlayerTitle.bflyt",
+    "size": 6560,
+    "sha256": "13cf0bf7d561a110de73b353823c5d1d3781b42168b9692164a85936b2979992",
+    "fnv64": "157cd816b16124b6",
+    "patched_sha256": "780c9e290f9f5c8ef3f34ebacc89725aaa5898ce5aaab3b8ed0ad6b41be3e9b0",
+    "changes": [
+      {
+        "offset": 2332,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_00: embedded background width"
+      },
+      {
+        "offset": 2468,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Bg_01: embedded background width"
+      },
+      {
+        "offset": 2604,
+        "before": "0000f044",
+        "after": "00402145",
+        "description": "L_Bg_00/P_Dot_00: embedded background width"
+      }
+    ]
+  }
+]

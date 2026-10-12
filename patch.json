@@ -1,5 +1,5 @@
 {
-  "revision": 2,
+  "revision": 3,
   "game": "Animal Crossing: New Horizons",
   "game_version": "3.0.3",
   "title_id": "01006F8002326000",
@@ -9,7 +9,7 @@
   "code_padding_start": "03F06DF0",
   "code_padding_end": "03F07000",
   "image_size": "04B58000",
-  "pchtxt_sha256": "5be72a4fbcc998a6f094256c88e93e77cf8ed4f8f758a0e0ddf11597561bb00b",
+  "pchtxt_sha256": "b68345823fe8af80b52413309814bfd6c313cb26410821b5d95104050d11a052",
   "verified_nso_segments": [
     {
       "address": "00000000",
@@ -43,6 +43,53 @@
       "source": "perspective_matrix.s",
       "site_label": "Perspective matrix hook",
       "cave_label": "Conditional perspective matrix"
+    },
+    {
+      "site": "00268EE0",
+      "cave": "03F06E40",
+      "original": "A80E4079",
+      "source": "layout_load.s",
+      "site_label": "3.0.3 FLYT resource hook",
+      "cave_label": "Layout resource adapter"
+    },
+    {
+      "site": "00260098",
+      "cave": "03F06EC0",
+      "original": "930200F9",
+      "source": "animation_load.s",
+      "site_label": "3.0.3 FLAN resource hook",
+      "cave_label": "Animation resource adapter"
+    },
+    {
+      "site": "03A308E8",
+      "cave": "03F06FA0",
+      "original": "0318221E",
+      "source": "ui_scissor.s",
+      "site_label": "3.0.3 projection-aware UI scissor",
+      "cave_label": "Retain clipping with the actual UI projection"
+    },
+    {
+      "site": "03A2EABC",
+      "cave": "03F06E58",
+      "original": "2219221E",
+      "source": "ui_capture.s",
+      "site_label": "3.0.3 projection-aware background copy",
+      "cave_label": "Capture projection and orthographic gate"
     }
-  ]
+  ],
+  "payloads": [
+    {
+      "address": "03F06ED8",
+      "source": "resource_patch.s",
+      "label": "Exact-resource fingerprint and delta application"
+    },
+    {
+      "address": "03F06FDC",
+      "source": "ui_capture_tail.s",
+      "label": "Capture rectangle projection continuation"
+    }
+  ],
+  "table_address": "04724200",
+  "table_end": "04725000",
+  "correction": "2026-10-11-ui-sweep"
 }
