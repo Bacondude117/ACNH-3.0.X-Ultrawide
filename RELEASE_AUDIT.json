@@ -1,8 +1,8 @@
 {
-  "revision": 3,
+  "revision": 4,
   "status": "source packaging checks passed",
-  "correction": "2026-10-11-ui-sweep",
-  "patch_sha256": "b68345823fe8af80b52413309814bfd6c313cb26410821b5d95104050d11a052",
+  "correction": "v4-field-ranges-1.5-terrain-cell-3d-bound-unit-pool-2x",
+  "patch_sha256": "0633440e57dd94ec91f7b053d561e7d42a114e11032e068a70b3ee1c122cbf0a",
   "scope": "Explicitly allowlisted UTF-8 source/docs; regression suite and exact patch rebuild",
   "excluded": [
     "game executables/assets",
@@ -16,5 +16,7 @@
   "license_file": "LICENSE",
   "dependencies": "Pinned in requirements.txt; installed separately",
   "limits": "Pattern scanning is not a legal clearance or a guarantee of finding every possible secret. Review changes before publication.",
+  "gameplay_status": "CPU/static, original-byte and original-function checks only; outdoor visibility, object-count headroom and performance are not gameplay-confirmed.",
+  "v4_change": "Widen the horizontal terms (Left/Right/Tilt) of the 3.0.3 field create range and tree/item area rectangles by 1.5 so terrain, trees, grass and items exist across the full 43:18 view; depth ranges unchanged. rev3: terrain cell-group bounding sphere uses the 3D half-diagonal (closes see-through ground at far corners); the two area sites share one BL routine; the field-unit model pool (mUnitMax, used by ground and grass) is doubled at load so the wider view does not run out of slots. Camera hooks compacted to AArch64 PCS-correct routines.",
   "github_upload": "not performed"
 }

@@ -1,4 +1,60 @@
-# Corrected v3 validation record - 2026-10-11
+## Ground and grass at the far corners: field-unit pool (revision 3)
+
+Testing revision 2 in Eden still showed see-through ground in a far corner and grass popping in at the sides. Ground, grass, cliff, river and path pieces are field-unit models. They share one pool, sized when the field renderer starts up from `FieldUnitModelParam.mUnitMax` (registered at `01462A44`, code default 2000). The pool is loaded at `01462BB4` and stored at manager `+0x6E8`. It sizes two instance buffers (`0146534C`, `014654C8`) and a 0x38-byte unit array (`014663EC`, count at `+0x510`). Each drawn unit takes an index from an atomic counter at `+0x558` (`0146ABC0`). If the index is at or past the count, `0146ABF4` falls back to index 0, so every extra unit lands in slot 0 and disappears. A 43:18 view needs about 1.34x the stock slots. v4 doubles the count once at load. CPU checks: 24 hook runs over 12 values at two load bases. W8 must equal 2x the value with a zero upper half, and all other registers and flags must be preserved.
+
+The terrain cell-group sphere at `013A37B4` now uses the full 3D half-diagonal, so partly visible corner groups pass the game's own sphere/frustum test (24 runs).
+
+The 195-unit budget at `013A3018` was investigated and left unchanged. It meters placed furniture/item actors against the fixed 200-entry `FtrActorMgr` pool (`01391AAC`, `013A44A8`).
+
+# v4 validation record - 2026-10-18 (revision 2)
+
+## Remaining back-corner pop-in: tree and item areas
+
+Widening only the create range did not fix the back corners in Eden. A 3x create range improved them; adding 2x depth changed nothing. That pointed to a second, horizontal-only limit. The 3.0.3 field-item manager registers `mTreeAreaLeft/Right/Near/Far/Tilt`, `mAreaLeft/Right/Near/Far/Tilt` and `mAreaWidthBuff/NearBuff/FarBuff` at owner offsets `+0x8450..+0x8690` (`011227A0`.., 0x30 bytes per parameter). Function `01125DDC` turns them into the same kind of cell rectangle with near-edge tilt, for trees and for items, with and without buffers (four calls from `010D7158`..). These rectangles were not widened by the create-range hook.
+
+v4 now scales Left/Right (`S8`/`S9` at `01126144` and on the alternate path at `01125FE4`) and Tilt (`S3` at `0112616C`) by 1.5. The create range uses the same factor (1.5 instead of 43/32) for margin. Depth terms and all culling tests are unchanged.
+
+Checks:
+
+- 72 isolated hook executions (3 hooks x 12 cases x 2 load bases).
+- 160 executions of the original `01125DDC` with mocked parameter objects, covering tree/item x buffered/unbuffered x normal/alternate path. Depth bounds are identical. Horizontal bounds always widen or stay equal. Tilt ratios scale by 1.5. Unbuffered results equal the original function fed 1.5x parameters exactly.
+- The aspect getter and matrix hooks were compacted to free executable padding. 128 hook executions check AArch64 PCS register preservation, and 64 full original-matrix comparisons pass.
+
+Patch SHA-256 for this revision: `0633440e57dd94ec91f7b053d561e7d42a114e11032e068a70b3ee1c122cbf0a`. Not yet confirmed in Eden.
+
+## Earlier v4 record (create range only)
+
+## Root cause of outdoor side-edge pop-in
+
+The earlier v4 attempts treated the symptom as a frustum or bounding-volume problem. The perspective frustum used for actor, terrain-cell and camera-manager culling already receives the 43:18 aspect: `015141BC` calls the frustum builder `03883A20`, which reads aspect through the hooked getter, and the terrain copies those parameters into its own frustum at field `+0x17DD0` via `03882F28`. The remaining limit comes before any culling.
+
+Each frame `013A2790` calls `013A2864` with the camera focus position. That function builds the field *create range*: an integer rectangle of 5-unit cells, `[(x - Left)/5, (x + Right)/5] x [(z - Far)/5, (z + Near)/5]`, plus a per-row narrowing ratio `Tilt / depth span` that shrinks the near (bottom-of-screen) rows. Left, Right, Near, Far and Tilt are the `mCreateRangeLeft/Right/Near/Far/Tilt` field parameters registered by `013A6D20` at offsets `+0x60/+0x90/+0xC0/+0xF0/+0x120`. A buffered rectangle adds `mRangeWidthBuff`, `mRangeNearBuff` and `mRangeFarBuff` (`+0x3C0/+0x3F0/+0x420`). The results are stored at field `+0x16D78`, `+0x16DA8` and `+0x16DD8`.
+
+- `013A2D80` iterates terrain cell groups only inside that rectangle before its sphere/frustum test, `0063E274`.
+- `01394110` is a cell-in-range query against the same rectangle, including the trapezoid narrowing. The parameter names identify this as the range in which field content is created. Not every consumer has been traced; the symptom (terrain, trees, grass and items popping in together) matches one shared range.
+
+Anything outside the 16:9-tuned rectangle is never created or tested. On a 43:18 display it shows up as terrain, trees, grass and items popping in at both sides, worst at the bottom corners where tilt narrows the range. This matches the reported reproduction: lower island, camera looking down, both side edges.
+
+## Correction
+
+`src/create_range.s` replaces `fsub s0, s10, s9` at `013A29A4`, the first use of the loaded extents. It multiplies S9 (Left), S13 (Right, including the stock Wherearen extension) and stack `+0x18` (Tilt) by float32 43/32, replays the instruction and returns to `013A29A8`. The normal camera always faces world -Z, so X is screen-horizontal; this is the same horizontal factor the projection patch applies. Depth terms, buffers, curvature, the frustum test and every later visibility check are unchanged. The 36-byte payload uses `03F06DF0..03F06E14`, previously occupied by the abandoned terrain-cell sphere hook.
+
+The terrain-cell sphere hook (`013A37B4`) and actor category-bounds hook (`01573C3C`) are removed. Both acted on objects the create range had already excluded.
+
+## Checks
+
+- `verify_create_range.py` executes the installed branch and cave at two load bases over 12 cases (24 runs). It checks exact 43/32 products, the replayed instruction, the return address, and unchanged GPRs, flags, FP/LR/SP, depth registers and other stack bytes.
+- With `--verify-main`, the original 3.0.3 function `013A2864` runs end to end in Unicorn, unpatched and patched, with mocked parameter objects (35 runs over 12 cases).
+  - The patched output equals the unpatched function fed float32(Left x 43/32), float32(Right x 43/32) and float32(Tilt x 43/32), bit for bit.
+  - Z bounds, the sound rectangle (`+0x600/+0x630`) and the stored focus are identical.
+  - All three rectangles widen. Example: Left = Right = 32, Tilt = 12, focus X = 160 widens the create rectangle from cells 25..38 to 23..40.
+- `verify_main` also checks every original patch byte, including `4039291E` at `013A29A4` and zero padding at the cave.
+
+Patch SHA-256: `0633440e57dd94ec91f7b053d561e7d42a114e11032e068a70b3ee1c122cbf0a`. In-game behavior, frame time and object-count headroom on dense islands have not been checked in Eden. The passport artifacts previously reproduced with all mods disabled at 16:9 remain an unrelated known issue.
+
+The v4 write spans were compared with the locally audited 3.0.3 60 FPS SpeedFix, 120 FPS SpeedFix and no-trampled-flowers patches; no address overlaps were found. The v2 ultrawide patch overlaps the executable padding by design and must be disabled when v4 is active. This is a static address comparison only.
+
+## Historical v3 validation record - 2026-10-11
 
 ## Version and implementation evidence
 
@@ -79,7 +135,7 @@ Check the corrected build after completely restarting the game:
 9. Custom Designs left, centered and right modes: only the left mode shifts; no leaked tiles at the panel edges. Full capture masks must match the world behind them without mirrored/repeated strips.
 10. Related audited background families, including bulletin board, closets, crafting/cooking/remake, character creation, room sizing and selected facility/home/cloud-island editors.
 
-Tree culling at the upper corners is unchanged and remains unresolved. Specialized transitions beyond the listed layouts remain unverified.
+The current v4 patch widens the 16:9-tuned field create range behind the reported side-edge pop-in. Gameplay confirmation is still pending. Specialized transitions beyond the listed layouts remain unverified.
 
 ## Additional UI sweep and capture mapping
 

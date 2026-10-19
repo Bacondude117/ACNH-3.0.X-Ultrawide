@@ -20,7 +20,10 @@ FILES = [
     "tests/test_build.py", "verify_resources.py", "layout_deltas.json",
     "src/layout_load.s", "src/animation_load.s", "src/resource_patch.s",
     "CHANGELOG.md", "VALIDATION.md", "verify_ui.py", "src/ui_scissor.s",
-    "verify_capture.py", "verify_sweep.py", "src/ui_capture.s", "src/ui_capture_tail.s",
+    "verify_capture.py", "verify_sweep.py", "verify_create_range.py", "verify_area_range.py",
+    "src/ui_capture.s", "src/ui_capture_tail.s", "src/create_range.s",
+    "src/area_range.s", "src/area_tilt.s", "src/terrain_cell_sphere.s", "verify_culling.py",
+    "src/unit_max.s", "verify_unit_max.py",
 ]
 PATTERNS = {
     "private Windows home path": r"(?i)[a-z]:[\\/]Users[\\/][^\\/\s]+",
@@ -71,6 +74,8 @@ def main():
         "credential_and_private_path_patterns": "no matches",
         "license_file": "LICENSE", "dependencies": "Pinned in requirements.txt; installed separately",
         "limits": "Pattern scanning is not a legal clearance or a guarantee of finding every possible secret. Review changes before publication.",
+        "gameplay_status": "CPU/static, original-byte and original-function checks only; outdoor visibility, object-count headroom and performance are not gameplay-confirmed.",
+        "v4_change": "Widen the horizontal terms (Left/Right/Tilt) of the 3.0.3 field create range and tree/item area rectangles by 1.5 so terrain, trees, grass and items exist across the full 43:18 view; depth ranges unchanged. rev3: terrain cell-group bounding sphere uses the 3D half-diagonal (closes see-through ground at far corners); the two area sites share one BL routine; the field-unit model pool (mUnitMax, used by ground and grass) is doubled at load so the wider view does not run out of slots. Camera hooks compacted to AArch64 PCS-correct routines.",
         "github_upload": "not performed",
     }
     payload["RELEASE_AUDIT.json"] = (json.dumps(report, indent=2) + "\n").encode()

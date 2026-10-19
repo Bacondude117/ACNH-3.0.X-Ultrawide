@@ -1,5 +1,5 @@
 {
-  "revision": 3,
+  "revision": 4,
   "game": "Animal Crossing: New Horizons",
   "game_version": "3.0.3",
   "title_id": "01006F8002326000",
@@ -9,7 +9,7 @@
   "code_padding_start": "03F06DF0",
   "code_padding_end": "03F07000",
   "image_size": "04B58000",
-  "pchtxt_sha256": "b68345823fe8af80b52413309814bfd6c313cb26410821b5d95104050d11a052",
+  "pchtxt_sha256": "0633440e57dd94ec91f7b053d561e7d42a114e11032e068a70b3ee1c122cbf0a",
   "verified_nso_segments": [
     {
       "address": "00000000",
@@ -30,7 +30,7 @@
   "hooks": [
     {
       "site": "037E594C",
-      "cave": "03F06E00",
+      "cave": "03F06E10",
       "original": "00B040BD",
       "source": "aspect_getter.s",
       "site_label": "Aspect getter hook",
@@ -38,7 +38,7 @@
     },
     {
       "site": "037E5968",
-      "cave": "03F06E80",
+      "cave": "03F06E90",
       "original": "009840BD",
       "source": "perspective_matrix.s",
       "site_label": "Perspective matrix hook",
@@ -46,7 +46,7 @@
     },
     {
       "site": "00268EE0",
-      "cave": "03F06E40",
+      "cave": "03F06E50",
       "original": "A80E4079",
       "source": "layout_load.s",
       "site_label": "3.0.3 FLYT resource hook",
@@ -54,7 +54,7 @@
     },
     {
       "site": "00260098",
-      "cave": "03F06EC0",
+      "cave": "03F06ED0",
       "original": "930200F9",
       "source": "animation_load.s",
       "site_label": "3.0.3 FLAN resource hook",
@@ -70,16 +70,67 @@
     },
     {
       "site": "03A2EABC",
-      "cave": "03F06E58",
+      "cave": "03F06E68",
       "original": "2219221E",
       "source": "ui_capture.s",
       "site_label": "3.0.3 projection-aware background copy",
       "cave_label": "Capture projection and orthographic gate"
+    },
+    {
+      "site": "013A29A4",
+      "cave": "03F06DF0",
+      "original": "4039291E",
+      "source": "create_range.s",
+      "site_label": "3.0.3 field create-range rectangle hook",
+      "cave_label": "Widen horizontal create-range extents and near-edge tilt by 1.5"
+    },
+    {
+      "site": "01126144",
+      "cave": "03F06E30",
+      "original": "800240BD",
+      "source": "area_range.s",
+      "site_label": "3.0.3 tree/item area rectangle hook",
+      "cave_label": "Widen tree/item area Left/Right by 1.5 (shared, returns with RET)",
+      "link": true
+    },
+    {
+      "site": "0112616C",
+      "cave": "03F06EA8",
+      "original": "030040BD",
+      "source": "area_tilt.s",
+      "site_label": "3.0.3 tree/item area tilt load",
+      "cave_label": "Scale tree/item area near-edge tilt by 1.5"
+    },
+    {
+      "site": "01125FE4",
+      "cave": "03F06E30",
+      "original": "800240BD",
+      "source": "area_range.s",
+      "link": true,
+      "shared_cave": true,
+      "site_label": "3.0.3 tree/item area rectangle hook (alternate path)",
+      "cave_label": "Shared tree/item area widening routine"
+    },
+    {
+      "site": "013A37B4",
+      "cave": "03F06EB8",
+      "original": "0020211E",
+      "source": "terrain_cell_sphere.s",
+      "site_label": "3.0.3 terrain cell-group sphere hook",
+      "cave_label": "3D terrain-cell half-diagonal culling radius"
+    },
+    {
+      "site": "01462BB4",
+      "cave": "03F06E44",
+      "original": "080040B9",
+      "source": "unit_max.s",
+      "site_label": "3.0.3 FieldUnitModelParam.mUnitMax load",
+      "cave_label": "Double the field-unit model pool (ground/grass) once at load"
     }
   ],
   "payloads": [
     {
-      "address": "03F06ED8",
+      "address": "03F06EE8",
       "source": "resource_patch.s",
       "label": "Exact-resource fingerprint and delta application"
     },
@@ -91,5 +142,5 @@
   ],
   "table_address": "04724200",
   "table_end": "04725000",
-  "correction": "2026-10-11-ui-sweep"
+  "correction": "v4-field-ranges-1.5-terrain-cell-3d-bound-unit-pool-2x"
 }

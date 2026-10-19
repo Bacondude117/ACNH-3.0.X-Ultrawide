@@ -1,4 +1,4 @@
-"""Portable deterministic v3 assembler. No game files needed to build."""
+"""Portable deterministic v4 assembler. No game files needed to build."""
 from __future__ import annotations
 
 import argparse
@@ -11,7 +11,7 @@ import zipfile
 from keystone import Ks, KS_ARCH_ARM64, KS_MODE_LITTLE_ENDIAN
 
 ROOT = Path(__file__).resolve().parent
-MOD_NAME = "ACNH 3.0.3 - 3440x1440 Ultrawide - v3"
+MOD_NAME = "ACNH 3.0.3 - 3440x1440 Ultrawide - v4"
 
 
 def require(condition, message):
@@ -32,17 +32,19 @@ def assemble(config):
         # Comments are documentation, not assembler input.
         source = "\n".join(line.split("//", 1)[0] for line in source.splitlines())
         payload = bytes(assembler.asm(source, cave)[0])
-        branch = bytes(assembler.asm(f"b #{cave}", site)[0])
+        # "link" sites call a routine that returns with RET (only where the
+        # hooked function has already saved LR); others branch and branch back.
+        branch = bytes(assembler.asm(f"{'bl' if hook.get('link') else 'b'} #{cave}", site)[0])
         original = bytes.fromhex(hook["original"])
         require(len(branch) == len(original) == 4, "Hook branch must be one ARM64 instruction")
         require(len(payload) % 4 == 0, "Unaligned hook payload")
         require(int(config["code_padding_start"], 16) <= cave
                 and cave + len(payload) <= int(config["code_padding_end"], 16),
                 "Hook exceeds executable alignment padding")
-        patches.extend([
-            {"address": site, "old": original, "new": branch, "label": hook["site_label"]},
-            {"address": cave, "old": bytes(len(payload)), "new": payload, "label": hook["cave_label"]},
-        ])
+        patches.append({"address": site, "old": original, "new": branch, "label": hook["site_label"]})
+        # A second site may share an already emitted routine.
+        if not hook.get("shared_cave"):
+            patches.append({"address": cave, "old": bytes(len(payload)), "new": payload, "label": hook["cave_label"]})
     for item in config.get("payloads", []):
         address = int(item["address"], 16)
         source = (ROOT / "src" / item["source"]).read_text(encoding="ascii")
@@ -62,6 +64,7 @@ def assemble(config):
 
 
 def resource_table(resources=None):
+    include_hash_constants = resources is None
     if resources is None:
         resources = json.loads((ROOT / "layout_deltas.json").read_text())
     result = bytearray()
@@ -92,7 +95,11 @@ def resource_table(resources=None):
             body += struct.pack('<'+'H'*len(positions), *positions)
         result += struct.pack('<IIQ', resource['size'], 16+len(body), int(resource['fnv64'],16)) + body
     result += bytes(16)
-    return bytes(result) + bytes(-len(result) % 4)
+    result += bytes(-len(result) % 4)
+    if include_hash_constants:
+        require(len(result) == 0xD7C, "Resource table moved; update verified hash-constant location")
+        result += bytes(4) + struct.pack("<QQ", 0xCBF29CE484222325, 0x00000100000001B3)
+    return bytes(result)
 
 
 def render_patch(config, patches):
@@ -130,13 +137,17 @@ def build(output, main_path=None):
     from verify_ui import check_ui_deltas, verify_scissor_hook, check_phone_menu_deltas
     from verify_capture import verify_capture_hook
     from verify_sweep import check_sweep
+    from verify_create_range import verify_create_range_hook
+    from verify_area_range import verify_area_range_hooks
+    from verify_culling import verify_culling_hook
+    from verify_unit_max import verify_unit_max_hook
 
     config = load_config()
     patches = assemble(config)
     patch_data = render_patch(config, patches)
     digest = hashlib.sha256(patch_data).hexdigest()
     require(digest == config["pchtxt_sha256"],
-            "Output differs from the recorded v3 fingerprint.")
+            "Output differs from the recorded v4 fingerprint.")
     loader = check_loader(config, patches, patch_data)
     hooks = verify_hooks(config, patches)
     resources = verify_resource_hooks(config, patches)
@@ -145,8 +156,12 @@ def build(output, main_path=None):
     ui_checks['phone_menus'] = check_phone_menu_deltas()
     ui_checks['capture_hook'] = verify_capture_hook(config, patches)
     ui_checks['ui_sweep'] = check_sweep()
+    create_range = verify_create_range_hook(config, patches)
+    area_range = verify_area_range_hooks(config, patches)
+    culling = verify_culling_hook(config, patches)
+    unit_max = verify_unit_max_hook(config, patches)
     main_result = verify_main(main_path, config, patches) if main_path else {
-        "status": "not_run", "reason": "No --verify-main supplied; game executable is not required to assemble v3."
+        "status": "not_run", "reason": "No --verify-main supplied; game executable is not required to assemble v4."
     }
     # Do not emit a nominally successful build before validation finishes.
     package = output / MOD_NAME
@@ -156,16 +171,20 @@ def build(output, main_path=None):
     for notice in ("LICENSE", "THIRD_PARTY.md"):
         (package / notice).write_bytes((ROOT / notice).read_bytes())
     report = {
-        "revision": 3, "title_id": config["title_id"], "build_id": config["build_id"],
+        "revision": 4, "title_id": config["title_id"], "build_id": config["build_id"],
         "patch_sha256": digest, "patch_bytes": sum(len(p["new"]) for p in patches),
         "loader_check": loader, "hook_execution_tests": hooks, "original_game_verification": main_result,
         "resource_hook_tests": resources, "targeted_ui_checks": ui_checks,
+        "create_range_cpu_test": create_range,
+        "tree_item_area_cpu_test": area_range,
+        "terrain_cell_sphere_cpu_test": culling,
+        "field_unit_pool_cpu_test": unit_max,
         "correction": config['correction'],
         "gameplay_status": "Not verified in Eden; CPU/static validation is not gameplay confirmation.",
-        "known_issue": "Object culling unchanged. See README for loading/HUD coverage and remaining test cases.",
+        "known_issue": "Targets terrain/tree/grass/item pop-in at the screen sides and far corners. The 3.0.3 field create range (mCreateRange*) and the tree/item area rectangles (mTreeArea*, mArea*) were sized for 16:9; this build widens only their horizontal terms by 1.5, bounds terrain cell groups by their 3D half-diagonal, and doubles the field-unit model pool (mUnitMax) that ground and grass draw from. Memory headroom and runtime cost still need Eden gameplay confirmation.",
     }
     (package / "verification.json").write_bytes((json.dumps(report, indent=2) + "\n").encode("utf-8"))
-    archive = output / "ACNH-3.0.3-3440x1440-Eden-v3.zip"
+    archive = output / "ACNH-3.0.3-3440x1440-Eden-v4.zip"
     package_zip(archive, package, ["exefs/3440x1440.pchtxt", "README.md", "verification.json", "LICENSE", "THIRD_PARTY.md"])
     return archive, report
 
@@ -181,9 +200,9 @@ def main():
     except (ValueError, OSError) as error:
         parser.exit(1, f"Build failed: {error}\n")
     print(f"Built: {archive}\nPatch SHA-256: {report['patch_sha256']}")
-    print("v3 assembled; loader, projection hooks, and resource hook CPU checks passed. Gameplay unverified.")
+    print("v4 assembled; loader, projection, resource, create-range, tree/item-area, terrain-cell and field-unit-pool CPU checks passed. Gameplay unverified.")
     if args.verify_main:
-        print("Original NSO validation and 64 full projection tests passed.")
+        print("Original NSO validation, 64 full projection tests and original create-range/area function runs passed.")
 
 
 if __name__ == "__main__":

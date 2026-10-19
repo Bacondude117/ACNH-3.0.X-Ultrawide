@@ -91,9 +91,16 @@ def _projection(u, ratio, near=1., far=10000., tanhalf=.6, offsetx=0., offsety=0
 
 
 def _registers(u):
+    """Registers a callee must preserve (AArch64 PCS) plus the argument registers.
+
+    The camera hooks replace the first instruction of complete functions, so
+    X16/X17 (IP0/IP1), S1-S7 and the condition flags are caller-saved scratch.
+    """
     _, r = _deps()
-    ids = [r.UC_ARM64_REG_X0 + index for index in range(29)]
-    ids += [r.UC_ARM64_REG_FP, r.UC_ARM64_REG_LR, r.UC_ARM64_REG_SP, r.UC_ARM64_REG_NZCV]
+    ids = [r.UC_ARM64_REG_X0 + index for index in range(16)]
+    ids += [r.UC_ARM64_REG_X0 + index for index in range(18, 29)]
+    ids += [r.UC_ARM64_REG_FP, r.UC_ARM64_REG_LR, r.UC_ARM64_REG_SP]
+    ids += [r.UC_ARM64_REG_D8 + index for index in range(8)]
     return [u.reg_read(reg) for reg in ids]
 
 
@@ -110,19 +117,23 @@ def verify_hooks(config, patches):
                     u = _machine(patches, relocation)
                     _projection(u, ratio)
                     u.reg_write(r.UC_ARM64_REG_NZCV, flags)
+                    for k in range(8):
+                        u.reg_write(r.UC_ARM64_REG_D8 + k, 0x4000000000000000 + k)
                     before = _registers(u)
-                    # Run from the actual patched instruction to its original
-                    # continuation. No copy of the game's function is needed.
-                    u.emu_start(relocation + site, relocation + site + 4, count=100)
-                    require(u.reg_read(r.UC_ARM64_REG_PC) == relocation + site + 4, "Hook failed to return")
-                    require(_registers(u) == before, "Hook changed GPRs, stack, or processor flags")
+                    # The getter routine returns to its caller (LR); the matrix
+                    # routine resumes the original function at site + 4.
+                    stop = 0x100000 if index == 0 else relocation + site + 4
+                    u.emu_start(relocation + site, stop, count=100)
+                    require(u.reg_read(r.UC_ARM64_REG_PC) == stop, "Hook failed to return")
+                    require(_registers(u) == before, "Hook changed an argument or callee-saved register")
                     actual_s0 = u.reg_read(r.UC_ARM64_REG_S0)
                     require(actual_s0 == (expected if index == 0 else 0x3f800000), "Unexpected S0 result")
                     stored = bytes(u.mem_read(0x200000 + 0xb0, 4))
                     require(stored == struct.pack("<I", bits if index == 0 else expected), "Unexpected camera aspect")
                     count += 1
     require(count == 128, "Unexpected hook-test count")
-    return {"executions": count, "load_bases": 2, "aspect_ratios": 8, "flag_states": 4}
+    return {"executions": count, "load_bases": 2, "aspect_ratios": 8, "flag_states": 4,
+            "preserved": "X0-X15, X18-X29, LR, SP, D8-D15 (AArch64 PCS)"}
 
 
 def load_main(path, config):
@@ -180,8 +191,12 @@ def verify_main(path, config, patches):
             require(a == b, "A non-native camera ratio was changed")
     from verify_ui import verify_scissor_regression, verify_projected_scissors
     from verify_capture import verify_capture_coordinates, verify_material_projection
+    from verify_create_range import verify_create_range_function
+    from verify_area_range import verify_area_range_function
     return {"status": "passed", "verified_segments": checks, "full_matrix_tests": 64,
             "minimap_scissor_regression": verify_scissor_regression(image),
             "projected_ui_scissors": verify_projected_scissors(image, patches),
             "background_capture_coordinates": verify_capture_coordinates(image, patches),
-            "capture_material_projection": verify_material_projection(image)}
+            "capture_material_projection": verify_material_projection(image),
+            "create_range_function": verify_create_range_function(image, patches),
+            "tree_item_area_function": verify_area_range_function(image, patches)}

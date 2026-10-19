@@ -1,5 +1,55 @@
 # Changes
 
+## v4 ground and grass fix - 2026-10-18 (revision 3)
+
+- In-game tests of revision 2 showed see-through ground in a far corner and grass popping in at the sides.
+- Found the cause: the 3.0.3 field-unit model pool. `FieldUnitModelParam.mUnitMax` (code default 2000) sizes the per-frame instance buffers and unit array. Every drawn ground, grass, cliff, river and path unit takes a slot from an atomic counter (`0146ABC0`). Past the limit, every extra unit reuses slot 0 (`0146ABF4`) and disappears. New hook at `01462BB4` doubles the pool once at load (`src/unit_max.s`, `verify_unit_max.py`: 24 runs).
+- Restored the 3D half-diagonal terrain cell-group bound at `013A37B4` (`src/terrain_cell_sphere.s`, `verify_culling.py`: 24 runs). It only enlarges the radius used by the game's sphere/frustum test.
+- The two tree/item area rectangle sites now share one routine, reached by BL and returning with RET. Source file `area_range_alt.s` was removed.
+- Checked and left unchanged: the 195-unit near-camera budget at `013A3018`. It limits furniture/item actors to the fixed 200-entry `FtrActorMgr` pool, not terrain or grass.
+- Not yet confirmed in Eden.
+
+## v4 tree/item area fix - 2026-10-18 (revision 2, superseded by revision 3)
+
+- In-game tests showed trees and items still popping in at the back corners. Found the 3.0.3 tree and item area rectangles (`mTreeArea*`, `mArea*`, function `01125DDC`), which are separate from the create range.
+- New hooks at `01126144`, `01125FE4` and `0112616C` scale their Left/Right and Tilt by 1.5. The create range now also uses 1.5 (was 43/32). Depth and culling are unchanged.
+- The aspect getter and matrix hooks were rewritten as short, AArch64 PCS-correct routines to free executable padding; projection output is unchanged (128 hook runs, 64 full-matrix comparisons).
+- Added `verify_area_range.py` (72 hook runs; 160 original-function runs with `--verify-main`). 17 tests pass. Not yet confirmed in Eden.
+
+
+## v4 field create-range fix - 2026-10-18 (superseded by revision 2)
+
+- Found the cause of side-edge pop-in. The 3.0.3 field create range (`013A2864`, parameters `mCreateRangeLeft/Right/Near/Far/Tilt`) decides which island cells have terrain drawn and trees, grass and items created. It is tuned for 16:9 and narrows toward the bottom of the screen.
+- New hook at `013A29A4` multiplies Left, Right and Tilt by 43/32. Depth range and all frustum/visibility tests are unchanged.
+- Removed the earlier v4 terrain-cell sphere (`013A37B4`) and actor category-bounds (`01573C3C`) hooks. Neither addressed the cause.
+- Added `verify_create_range.py`: 24 isolated hook executions, plus 35 end-to-end runs of the original 3.0.3 function (unpatched vs patched) when `--verify-main` is supplied.
+- Compiled and source archives rebuilt and audited. Eden gameplay, frame time and dense-island object limits still need confirmation. No GitHub upload.
+
+## v4 3D terrain-cell bound update - 2026-10-18 (superseded)
+
+- Updated the targeted 3.0.3 terrain-cell group radius at `013A37B4` from an X/Z-only half-diagonal plus maximum third extent to the full X/Y/Z half-diagonal. The original sphere/frustum test and later visibility checks remain active.
+- Added CPU cases verifying the full three-axis bound and preservation of non-scratch registers and condition flags at two code load bases.
+- This targets the reported lower-island side-edge pop-in during a downward normal-camera pan. Eden gameplay and performance confirmation are still required.
+
+## v4 terrain-cell culling correction - 2026-10-17 (superseded)
+
+- Replaced the actor-category bounds hook after the user's v4 gameplay test showed it did not resolve outdoor pop-in.
+- Verified the 3.0.3 terrain-cell group path at `013A37B4`: the game turns 5-meter grid extents into X/Z diameters, then used half the maximum side as a sphere radius before its sphere/frustum test.
+- The new hook computes a horizontal half-diagonal radius and takes the maximum with the original radius candidate. Terrain groups are conservatively bounded at their corners; later frustum, terrain, object and category tests remain active.
+- Added 24 ARM64 CPU executions over square, elongated and existing-radius-dominant cases at two code load bases, plus original-byte validation against the supplied 3.0.3 NSO.
+- Rebuilt the compiled v4 archive, audited the exact source ZIP, then rebuilt from a fresh extraction and confirmed the patch bytes are identical. Static/CPU checks pass; the change has not been verified in Eden gameplay and rendering cost has not been measured.
+- Disabled/older ultrawide versions must not be enabled alongside v4 because v2 writes into the same executable padding area. No GitHub upload or emulator installation change was made.
+
+## v4 outdoor object visibility - 2026-10-13 (superseded)
+
+- Increased the targeted 3.0.3 camera-derived category-bound margin to 21.875% per side on ground-plane X/Z (43.75% total). The initial v4 gameplay recording still showed corner pop-in; this keeps the frustum, horizon, scene-plane and category culling checks active.
+- Retained v2/v3 projection, loading, HUD, minimap, background and menu fixes. The resource-fingerprint routine now resets its hash state for each candidate entry; the FNV constants are stored in verified read-only padding so the code and v4 hook fit the available executable gap.
+- Added relocated ARM64 CPU execution cases for horizontal expansion, preserved vertical bounds, adjacent memory, general registers, stack and processor flags.
+- The expanded corner margin passed CPU/static validation, but the user's subsequent Eden test showed pop-in remained. This actor-bounds approach is removed from the current v4 source and patch.
+- Complete patch SHA-256: `5e5eec30c1e9010680d68d692074902fa4c66b43429c293e807487614a377d90`.
+- CPU/static and original-byte validation pass. Tree pop-in and performance remain unverified in Eden gameplay; no runtime claim is made.
+- Prepared v4 compiled and source archives. No GitHub upload or installed-mod change was made.
+
 ## v3 publication documentation - 2026-10-11
 
 - Documented the remaining passport transition/button artifacts and the tester's reproduction with every mod disabled at 16:9. Their underlying cause is unresolved, and this release does not claim a fix.
