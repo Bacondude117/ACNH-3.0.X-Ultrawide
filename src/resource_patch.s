@@ -1,7 +1,7 @@
 // Original routine, X15 = an already loaded FLYT/FLAN resource.
 // Table entries: u32 size, u32 total entry bytes, u64 original FNV-1a;
 // then groups: u16 count, u32 replacement, count u16 byte offsets.
-// Unaligned normal-memory reads are intentional; entries are 2-byte aligned.
+// Hash constants live in verified read-only alignment padding after the table.
 // A zero-size entry terminates the table. All registers/flags preserved.
 // Only an exact whole-resource fingerprint permits writes. A second load
 // sees the changed fingerprint and does nothing (no cumulative HUD drift).
@@ -10,9 +10,11 @@ stp x10, x11, [sp, #16]
 stp x12, x13, [sp, #32]
 stp x14, x16, [sp, #48]
 str x17, [sp, #64]
-mrs x17, nzcv
-str x17, [sp, #72]
+mrs x16, nzcv
 adrp x8, #0x04724000
+ldr x12, [x8, #0xf80]
+ldr x13, [x8, #0xf88]
+str x12, [sp, #72]
 add x8, x8, #0x200
 ldr w9, [x15, #12]
 entry:
@@ -20,16 +22,11 @@ ldp w10, w11, [x8]
 cbz w10, done
 cmp w10, w9
 b.ne next
-mov x12, #0x2325
-movk x12, #0x8422, lsl #16
-movk x12, #0x9CE4, lsl #32
-movk x12, #0xCBF2, lsl #48
-mov x13, #0x1B3
-movk x13, #0x100, lsl #32
+ldr x12, [sp, #72]
 mov x14, x15
 hash_loop:
-ldrb w16, [x14], #1
-eor x12, x12, x16
+ldrb w17, [x14], #1
+eor x12, x12, x17
 mul x12, x12, x13
 subs w10, w10, #1
 b.ne hash_loop
@@ -53,8 +50,7 @@ next:
 add x8, x8, x11
 b entry
 done:
-ldr x17, [sp, #72]
-msr nzcv, x17
+msr nzcv, x16
 ldr x17, [sp, #64]
 ldp x14, x16, [sp, #48]
 ldp x12, x13, [sp, #32]

@@ -4,8 +4,8 @@
 // Exact float32 ratio 0x4018E38E. Only native 16:9 perspective cameras change.
 // Set Eden graphics aspect ratio to Stretch to Window and use 3440x1440 fullscreen.
 // v3 adds exact-resource loading coverage and selected HUD anchors. See README.md.
-// Corrected v3 2026-10-11 ui-sweep: projected captures and targeted menu/background coverage.
+// v4 widens the field create range and tree/item area ranges horizontally by 1.5; culling tests unchanged.
 @flag offset_shift 0x100
 @flag print_values
-// 3440x1440 v3 - preserved v2 perspective plus selective loading/HUD fixes
+// 3440x1440 v4 - preserved v2/v3 fixes plus 43:18 field create and tree/item ranges
 @enabled
