@@ -10,17 +10,19 @@ from verify import check_loader, loader_records, load_main, verify_hooks
 from verify_resources import verify_resource_hooks, run_resource
 
 
-class V3SourceTests(unittest.TestCase):
+class V4SourceTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.config = build.load_config()
         cls.patches = build.assemble(cls.config)
         cls.data = build.render_patch(cls.config, cls.patches)
 
-    def test_exact_release_and_preserved_camera(self):
+    def test_exact_release_and_original_camera_sites(self):
         self.assertEqual(hashlib.sha256(self.data).hexdigest(), self.config['pchtxt_sha256'])
-        self.assertEqual(hashlib.sha256(b''.join(p['new'] for p in self.patches[:4])).hexdigest(),
-                         '36d699ce5ee26d4fceccd54dbc71319695877da1140f372ad79a821c9d675270')
+        camera = [hook for hook in self.config['hooks']
+                  if hook['source'] in ('aspect_getter.s', 'perspective_matrix.s')]
+        self.assertEqual([(hook['site'], hook['original']) for hook in camera],
+                         [('037E594C', '00B040BD'), ('037E5968', '009840BD')])
         self.assertNotIn(0x376d220, {p['address'] for p in self.patches})
 
     def test_loader_and_blank_line_regression(self):
@@ -34,6 +36,50 @@ class V3SourceTests(unittest.TestCase):
 
     def test_resource_cpu_execution(self):
         self.assertEqual(verify_resource_hooks(self.config, self.patches)['resources'], 102)
+
+    def test_create_range_cpu_execution(self):
+        from verify_create_range import verify_create_range_hook
+        self.assertEqual(verify_create_range_hook(self.config, self.patches)['executions'], 24)
+
+    def test_create_range_and_terrain_cell_sphere_hooks(self):
+        sites = {hook['site'] for hook in self.config['hooks']}
+        self.assertIn('013A29A4', sites)
+        self.assertIn('013A37B4', sites)  # 3D half-diagonal terrain-cell bound (rev3)
+        self.assertNotIn('01573C3C', sites)  # earlier category-bounds attempt
+        hook = next(h for h in self.config['hooks'] if h['source'] == 'create_range.s')
+        cave = next(p for p in self.patches if p['address'] == int(hook['cave'], 16))
+        self.assertEqual(len(cave['new']), 32)
+        self.assertEqual(cave['new'][:4], bytes.fromhex('00102F1E'))  # fmov s0, #1.5
+
+    def test_area_range_cpu_execution(self):
+        from verify_area_range import verify_area_range_hooks
+        self.assertEqual(verify_area_range_hooks(self.config, self.patches)['executions'], 72)
+
+    def test_terrain_cell_sphere_cpu_execution(self):
+        from verify_culling import verify_culling_hook
+        self.assertEqual(verify_culling_hook(self.config, self.patches)['executions'], 24)
+
+    def test_unit_max_cpu_execution(self):
+        from verify_unit_max import verify_unit_max_hook
+        self.assertEqual(verify_unit_max_hook(self.config, self.patches)['executions'], 24)
+
+    def test_area_range_sites_share_one_routine(self):
+        hooks = [h for h in self.config['hooks'] if h['source'] == 'area_range.s']
+        self.assertEqual(sorted(h['site'] for h in hooks), ['01125FE4', '01126144'])
+        self.assertEqual({h['cave'] for h in hooks}, {'03F06E30'})
+        self.assertTrue(all(h.get('link') for h in hooks))
+        sites = {p['address']: p['new'] for p in self.patches}
+        for h in hooks:
+            word = int.from_bytes(sites[int(h['site'], 16)], 'little')
+            self.assertEqual(word >> 26, 0b100101)  # BL
+
+    def test_compact_camera_hooks_fit_padding(self):
+        caves = sorted({(int(h['cave'], 16), h['source']) for h in self.config['hooks']})
+        spans = {p['address']: len(p['new']) for p in self.patches}
+        end = int(self.config['code_padding_end'], 16)
+        for (a, _), (b, _) in zip(caves, caves[1:]):
+            self.assertLessEqual(a + spans[a], b)
+        self.assertLessEqual(max(a + spans[a] for a, _ in caves), end)
 
     def test_dal_and_minimap_corrections(self):
         from verify_ui import check_ui_deltas
